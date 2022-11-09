@@ -1,36 +1,25 @@
 nav {
-  font-family: orbitron;
+
   color: rgb(62, 221, 62);
-  background-color: black;
-  text-align: center;
+  
+ 
   width: 98%;
-  margin: auto;
+  
 }
 main {
   font-family: "trispace";
 }
-main h2 {
-  font-size: 25px;
-  text-align: center;
-  margin-top: 2em;
-  margin-bottom: 2em;
-}
-.form {
-  margin: 5px;
-  margin-right: 10%;
-}
-label {
-  margin-left: 3em;
-}
+
+
+
+
 .submit {
   margin-left: 3em;
   margin-top: 1em;
-}
-.display-4 {
-  text-align: center;
+
 }
 .jumbotron {
-  background-color: black;
+
   color: rgb(62, 221, 62);
   font-family: orbitron;
 }
@@ -42,12 +31,7 @@ label {
 .accordion-header {
   font-family: trispace;
 }
-.accordion {
-  width: 80%;
-  margin: auto;
-  margin-bottom: 3em;
-  padding-bottom: 3em;
-}
+
 .col {
   background-color: darkslategray;
 }
@@ -58,21 +42,5 @@ label {
 .colForms {
   text-align: right;
 }
-.wrapper {
-  width: 90%;
-  margin: 0 auto;
-  background-color: rgb(235, 226, 207);
-  padding-top: 1em;
-}
 
-#divRight {
-  width: 50%;
-  text-align: left;
-}
-.divRight {
-  text-align: left;
-}
 
-.headingOne {
-  margin-top: 0;
-}
