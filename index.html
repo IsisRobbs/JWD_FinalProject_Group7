@@ -1,83 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-  <title>Paola's Template Main Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>Paola's Template Main Page</title>
 </head>
 
 
-<header>
-  <!--Header-->
-  <div class="containder-fluid w-100 h-50">
-    <div class="jumbotron" style="background: url(images/aesthetic.jpg); background-size: cover; height: 600px;">
-      <div class="container-fluid justify-content-center" style="background-color: rgba(253, 168, 128, 0.192);">
-        <h1 class="display-2 text-center align-center text-uppercase">hello world</h1>
-        <p class="lead display-5 text-center align-center font-weight-light pb-3">Task Manager</p>
-      </div>
-    </div>
-  </div>
-</header>
 
-<body style="background-color: rgba(222, 157, 127, 0.13);">
-  <!-- Container (Adding a Task)-->
-  <div class="shadow-lg p-2 bg-light rounded mr-3 ml-3">
-    <div style="background-color: rgba(253, 168, 128, 0.235);">
-      <h5 class="display-6 text-left text-uppercase font-weight-light"><u>Add a task:</u></h5>
-      <br>
-      <!--Name of Task-->
-      <div class="form-group w-50">
-        <label for="formTaskNameInput" class="font-weight-light">Task Name:</label>
-        <input type="text" class="form-control" id="formTaskNameInput" placeholder="Insert Task Here">
-      </div>
-      <!--Description-->
-      <div class="form-group w-50">
-        <div class="mb-3">
-          <label for="validationTextarea" class="font-weight-light">Description:</label>
-          <textarea class="form-control is-valid" id="validationTextarea" placeholder="Enter description of task." required></textarea>
-        </div>    
-      </div>
-      <!--Assigned To-->
-      <h6 class="text-left font-weight-light">Assigned To:</h6>
-      <div class="row">
-        <div class="col p-3">
-          <input type="text" class="form-control width-30" id="formNames" placeholder="First Name">
+
+<body>
+
+    <header>
+        <div class="container-fluid">
+
+            <div class="containder-fluid w-100 h-50">
+
+                <div class="container-fluid justify-content-center"
+                    style="background-color: rgba(253, 168, 128, 0.192);">
+                    <h1 class="display-2 text-center align-center text-uppercase">hello world</h1>
+                    <p class="lead display-5 text-center align-center font-weight-light pb-3">Task Manager</p>
+                </div>
+            </div>
+
+    </header>
+
+    <main>
+        <div class="container">
+        <div class="row">
+            <!--added row and column 3 and 6 below for sizing-->
+            <div class="col-sm-3"></div>
+            <!--want this to be fixed, background scrolls under? and smaller-->
+            <!-- Container (Adding a Task)-->
+            <div class=" text-center col-auto shadow-lg p-2 bg-light rounded mr-3 ml-3 position-static">
+                <div style="background-color: rgba(253, 168, 128, 0.235);">
+                    <h5 class="display-6 text-center text-uppercase font-weight-light"><u>Add a task:</u></h5>
+                    <br>
+                    <!--Name of Task-->
+                    
+                    <div class="form-group">
+                        <label for="formTaskNameInput" class="font-weight-light">Task Name:</label>
+                        <input style="width: 400px;" type="text" class="form-control mx-auto" id="formTaskNameInput" placeholder="Insert Task Here">
+                    </div>
+                    <!--Description-->
+                    <div class="form-group col-auto">
+                        <div class="mb-3">
+                            <label for="validationTextarea" class="font-weight-light">Description:</label>
+                            <textarea class="form-control is-valid" id="validationTextarea"
+                                placeholder="Enter description of task." required></textarea>
+                        </div>
+                    </div>
+                    <!--Assigned To-->
+                    <h6 class="text-center font-weight-light">Assigned To:</h6>
+                    <div class="row">
+                        <div class="col p-3">
+                            <input type="text" class="form-control width-30" id="formNames" placeholder="First Name">
+                        </div>
+                        <div class="col p-3">
+                            <input type="text" class="form-control w-100" placeholder="Last Name">
+                        </div>
+                        <br>
+                    </div>
+                    <!--Due Date-->
+                    <h6 class="text-center font-weight-light">Due Date:</h6>
+                    <div class="form-group p-3 text-center justify-content-center">
+                        <input style="width: 200px;" class="form-control text-center mx-auto" id="date" name="date" placeholder="MM/DD/YYYY"
+                            type="text">
+                    </div>
+                    <!--Status-->
+                    <div class="input-status mb-3">
+                        <div class="input-status-prepend">
+                            <label class="input-status-text font-weight-light text-center mx-auto" for="inputStatusSelect01">Current
+                                Status:</label>
+                        </div>
+                        <select style="width: 200px" class="custom-select" id="inputStatusSelect01">
+                            <option selected>Choose Status...</option>
+                            <option value="1">To Do</option>
+                            <option value="2">In Progress</option>
+                            <option value="3">Review</option>
+                            <option value="4">Done</option>
+                        </select>
+                    </div>
+                    <!--Submit Button-->
+                    <div class="row p-3">
+                        <button type="submit" class="btn btn-primary mx-auto"
+                            style="background-color: rgba(177, 98, 62, 0.804); outline-style: #000;">Submit</button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col p-3">
-          <input type="text" class="form-control w-100" placeholder="Last Name">
-        </div>
+            
+        
         <br>
-      </div>
-      <!--Due Date-->
-      <h6 class="text-left font-weight-light">Due Date:</h6>
-      <div class="form-group w-50 p-3 text-left">
-        <input class="form-control text-left" id="date" name="date" placeholder="MM/DD/YYYY" type="text">
-      </div>
-      <!--Status-->
-      <div class="input-status mb-3 w-50">
-        <div class="input-status-prepend">
-          <label class="input-status-text font-weight-light" for="inputStatusSelect01">Current Status:</label>
-        </div>
-        <select class="custom-select" id="inputStatusSelect01">
-          <option selected>Choose Status...</option>
-          <option value="1">To Do</option>
-          <option value="2">In Progress</option>
-          <option value="3">Review</option>
-          <option value="4">Done</option>
-        </select>
-      </div>
-      <!--Submit Button-->
-      <div class="row p-3">
-        <button type="submit" class="btn btn-primary" style="background-color: rgba(177, 98, 62, 0.804); outline-style: #000;">Submit</button>
-      </div>
-    </div>
-  </div>
+            <br>
+            <div class="container">
 
-  <br>
-  <br>
 
   <!-- Task Cards -->
   <div class="shadow-lg p-2 bg-light rounded ml-3 mr-3">
@@ -263,10 +286,18 @@
   <!-- Footer -->
   <footer class="align-center text-center">2022 Paola Gonzalez &copy;</footer>
 
-  <!-- Bootstrap's JavaScript Files -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        <!-- Bootstrap's JavaScript Files -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+            integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+            crossorigin="anonymous"></script>
+    </main>
+    </div>
 </body>
 
 </html>
