@@ -7,4 +7,9 @@ body {
   height: 15vw;
   object-fit: cover;
 }
-
+.closed {
+  width: 100%;
+}
+.btn-link {
+  color: whitesmoke;
+}
