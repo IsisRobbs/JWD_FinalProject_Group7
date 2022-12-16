@@ -1,10 +1,16 @@
 body {
+  background-attachment: fixed;
   background-image: url("/images/aesthetic.jpg");
-  background-size: 100%;
+  background-size: cover;
 }
 .card-img-top {
   width: 100%;
   height: 15vw;
   object-fit: cover;
 }
-
+.closed {
+  width: 100%;
+}
+.btn-light {
+  color: whitesmoke;
+}
