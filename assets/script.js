@@ -12,16 +12,24 @@
       form.addEventListener('submit', function(event) {
         if (form.checkValidity() === false) {
           event.preventDefault();
-          event.stopPropagation();}
-         form.classList.add('was-validated');
-
-         if (taskName.length > 30){
-          console.log('Task name can only be 50 characters long!');
-        } 
+          event.stopPropagation();} 
+          form.classList.add('was-validated');
+        }) 
+        taskName.addEventListener('submit', function(e) {
+          if (taskName.length > 30){
+            e.preventDefault();
+            e.stopPropagation();
+            return 'Task name can only be 50 characters long!';}
+        })
       }, false);
-    });
+      
   }, false);
 })();
-    
 
+
+    
+class AddTask {
+  constructor(taskName, taskDescription, firstName, lastName, dueDate, progress, submitButton)
+
+};
 
