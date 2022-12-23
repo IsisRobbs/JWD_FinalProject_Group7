@@ -82,7 +82,7 @@ function validateName(name) {
     //name.reportValidity();
     return false;
   }
-  const nameFormatMatch = name.value.match(/^([a-z]+[,.]?[ ]?|[a-z]+['-]?)+$/);
+  const nameFormatMatch = name.value.match(/^([a-z]+[,.]?[ ]?|[a-z]+['-]?)+$/i);
   if (nameFormatMatch == null) {
     name.setCustomValidity("Please enter valid name");
     //name.reportValidity();
