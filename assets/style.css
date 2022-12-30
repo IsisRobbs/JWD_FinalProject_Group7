@@ -14,3 +14,6 @@ body {
 .btn-light {
   color: whitesmoke;
 }
+/*input:invalid {
+  border: 2px dashed red;
+}*/
