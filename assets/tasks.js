@@ -10,9 +10,9 @@ class Task {
   }
 }
 
-class TaskList {
+class TaskManager {
   constructor() {
-    this.list = [];
+    this.taskList = [];
     this.currentId = 0;
   }
   addTask(taskName, description, firstName, lastName, dueDate, status) {
@@ -27,11 +27,11 @@ class TaskList {
     );
 
     this.currentId += 1;
-    this.list.push(task);
+    this.taskList.push(task);
   }
   removeTask(id) {}
   editTask(task) {}
-  getContents() {
-    return this.list;
+  getTaskList() {
+    return this.taskList;
   }
 }
