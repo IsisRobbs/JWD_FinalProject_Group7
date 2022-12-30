@@ -65,7 +65,9 @@
                                                     Name:</label>
                                                 <input type="text" class="form-control mx-auto" id="formTaskNameInput"
                                                     placeholder="Insert Task Here" required>
+                                                    <div class="invalid-feedback">What task are we accomplishing?</div>
                                             </div>
+                                            
                                             <!--Description-->
                                             <div class="form-group col-auto">
                                                 <div class="mb-3">
@@ -73,6 +75,7 @@
                                                         class="font-weight-light">Description:</label>
                                                     <textarea class="form-control" id="formTaskDescriptionInput"
                                                         placeholder="Enter description of task." required></textarea>
+                                                        <div class="invalid-feedback">What is the description of the task?</div>
                                                 </div>
                                             </div>
                                             <!--Assigned To-->
@@ -81,10 +84,12 @@
                                                 <div class="col px-3">
                                                     <input type="text" class="form-control width-30 name" id="firstName"
                                                         placeholder="First Name" required>
+                                                        <div class="invalid-feedback">Who is accomplishing the task??</div>
                                                 </div>
                                                 <div class="col px-3 pb-3">
                                                     <input type="text" class="form-control w-100 name" id="lastName"
                                                         placeholder="Last Name" required>
+                                                        <div class="invalid-feedback">Who is accomplishing the task??</div>
                                                 </div>
                                                 <br>
                                             </div>
@@ -94,6 +99,7 @@
                                                 <input style="width: 200px;" class="form-control text-center mx-auto"
                                                     id="date" name="date" placeholder="MM/DD/YYYY" type="date" required
                                                     data-invalid-message="custom message from php here">
+                                                    <div class="invalid-feedback">When is this task due?</div>
                                             </div>
                                             <!--Status-->
                                             <div class="input-status mb-3">
@@ -111,6 +117,7 @@
                                                     <option value="3">Review</option>
                                                     <option value="4">Done</option>
                                                 </select>
+                                                <div class="invalid-feedback">What is the status of this task?</div>
                                             </div>
                                             <!--Submit Button-->
                                             <div class="row p-3">
