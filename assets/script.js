@@ -44,32 +44,7 @@ function validateDate(date) {
     // date.reportValidity();
     return false;
   }
-  const dateFormatMatch = date.value.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
-  if (dateFormatMatch == null) {
-    date.setCustomValidity("Date format mm/dd/yyyy");
-    // date.reportValidity();
-    return false;
-  }
-  const splitDate = date.value.split("/");
-  console.log(splitDate);
-  const month = splitDate[0];
-  const day = splitDate[1];
-  const year = splitDate[2];
-  if (month < 1 || month > 12) {
-    date.setCustomValidity("Please enter valid month");
-    // date.reportValidity();
-    return false;
-  }
-  if (day < 1 || day > 31) {
-    date.setCustomValidity("Please enter valid day");
-    //date.reportValidity();
-    return false;
-  }
-  if (year < 2000) {
-    date.setCustomValidity("Please enter valid year");
-    //date.reportValidity();
-    return false;
-  }
+
   console.log(month);
   return true;
 }
