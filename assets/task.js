@@ -9,9 +9,13 @@ class Task {
       this.id = id
     }};
 
-     function createTaskHtml(){
+     function createTaskHtml(taskName, taskDescription, firstName, lastName, dueDate, progress, id){
       const html=
-     `<div id="${id}" class="collapse hide" data-bs-parent="#accordion">
+     `<h2 class="card-header btn" data-bs-toggle="collapse" href="${id}">
+     <button class="btn btn-link btn-block" type="button" data-toggle="collapse"
+         data-target="${id}">${taskName}</button>
+ </h2>
+     <div id="${id}" class="collapse hide" data-bs-parent="#accordion">
      <img class="card-img-top width-30 height-30" src="images/aesthetic-card1.jpg"
          alt="Task 1">
      <div class="card-body rounded-bottom"
@@ -47,5 +51,20 @@ class Task {
     }
     render(){
         // how would we make the html render here? Which id would we be searching for ?
+        const taskList = document.getElementById('accordionExample');
+        let finalTaskList = '';
+        for (let i=0; i < this.list.length; i++){
+          const taskHtml= createTaskHtml(
+        this.list[i].taskName,
+        this.list[i].taskDescription,
+        this.list[i].firstName,
+        this.list[i].lastName,
+        this.list[i].dueDate,
+        this.list[i].progress,
+        this.list[i].id
+        )
+        finalTaskList += taskHtml                                                                                                                   
+      }
+      taskList.innerHTML.insertAdjacentHTML('afterBegin',finalTaskList)
     }
 }
