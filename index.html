@@ -58,61 +58,69 @@
                                         <br>
                                         <h2 class="font-weight-light mb-4">Add A Task</h2>
                                         <!--Name of Task-->
+                                        <!--wrapped forms in form-->
+                                        <form class="needs-validation" novalidate>
+                                            <div class="form-group px-3">
+                                                <label for="formTaskNameInput" class="font-weight-light">Task
+                                                    Name:</label>
+                                                <input type="text" class="form-control mx-auto" id="formTaskNameInput"
+                                                    placeholder="Insert Task Here" required>
+                                            </div>
+                                            <!--Description-->
+                                            <div class="form-group col-auto">
+                                                <div class="mb-3">
+                                                    <label for="validationTextarea"
+                                                        class="font-weight-light">Description:</label>
+                                                    <textarea class="form-control" id="formTaskDescriptionInput"
+                                                        placeholder="Enter description of task." required></textarea>
+                                                </div>
+                                            </div>
+                                            <!--Assigned To-->
+                                            <h6 class="text-center font-weight-light">Assigned To:</h6>
+                                            <div class="row px-3">
+                                                <div class="col px-3">
+                                                    <input type="text" class="form-control width-30 name" id="firstName"
+                                                        placeholder="First Name" required>
+                                                </div>
+                                                <div class="col px-3 pb-3">
+                                                    <input type="text" class="form-control w-100 name" id="lastName"
+                                                        placeholder="Last Name" required>
+                                                </div>
+                                                <br>
+                                            </div>
+                                            <!--Due Date-->
+                                            <h6 class="text-center font-weight-light">Due Date:</h6>
+                                            <div class="form-group px-3 text-center justify-content-center">
+                                                <input style="width: 200px;" class="form-control text-center mx-auto"
+                                                    id="date" name="date" placeholder="MM/DD/YYYY" type="date" required
+                                                    data-invalid-message="custom message from php here">
+                                            </div>
+                                            <!--Status-->
+                                            <div class="input-status mb-3">
+                                                <div class="input-status-prepend">
+                                                    <label
+                                                        class="input-status-text font-weight-light text-center mx-auto"
+                                                        for="inputStatusSelect01">Current
+                                                        Status:</label>
+                                                </div>
+                                                <select style="width: 200px" class="custom-select"
+                                                    id="inputStatusSelect01" required>
+                                                    <option value="">Choose Status...</option>
+                                                    <option value="1">To Do</option>
+                                                    <option value="2">In Progress</option>
+                                                    <option value="3">Review</option>
+                                                    <option value="4">Done</option>
+                                                </select>
+                                            </div>
+                                            <!--Submit Button-->
+                                            <div class="row p-3">
+                                                <button class="btn btn-light mx-auto" style="background-color: rgba(177, 98, 62, 0.804); outline-style:
+                                                #000;" type="submit">Submit</button>
+                                            </div>
 
-                                        <div class="form-group px-3">
-                                            <label for="formTaskNameInput" class="font-weight-light">Task
-                                                Name:</label>
-                                            <input type="text" class="form-control mx-auto" id="formTaskNameInput"
-                                                placeholder="Insert Task Here">
-                                        </div>
-                                        <!--Description-->
-                                        <div class="form-group col-auto">
-                                            <div class="mb-3">
-                                                <label for="validationTextarea"
-                                                    class="font-weight-light">Description:</label>
-                                                <textarea class="form-control is-valid" id="validationTextarea"
-                                                    placeholder="Enter description of task." required></textarea>
-                                            </div>
-                                        </div>
-                                        <!--Assigned To-->
-                                        <h6 class="text-center font-weight-light">Assigned To:</h6>
-                                        <div class="row px-3">
-                                            <div class="col px-3">
-                                                <input type="text" class="form-control width-30" id="formNames"
-                                                    placeholder="First Name">
-                                            </div>
-                                            <div class="col px-3 pb-3">
-                                                <input type="text" class="form-control w-100" placeholder="Last Name">
-                                            </div>
-                                            <br>
-                                        </div>
-                                        <!--Due Date-->
-                                        <h6 class="text-center font-weight-light">Due Date:</h6>
-                                        <div class="form-group px-3 text-center justify-content-center">
-                                            <input style="width: 200px;" class="form-control text-center mx-auto"
-                                                id="date" name="date" placeholder="MM/DD/YYYY" type="text">
-                                        </div>
-                                        <!--Status-->
-                                        <div class="input-status mb-3">
-                                            <div class="input-status-prepend">
-                                                <label class="input-status-text font-weight-light text-center mx-auto"
-                                                    for="inputStatusSelect01">Current
-                                                    Status:</label>
-                                            </div>
-                                            <select style="width: 200px" class="custom-select" id="inputStatusSelect01">
-                                                <option selected>Choose Status...</option>
-                                                <option value="1">To Do</option>
-                                                <option value="2">In Progress</option>
-                                                <option value="3">Review</option>
-                                                <option value="4">Done</option>
-                                            </select>
-                                        </div>
-                                        <!--Submit Button-->
-                                        <div class="row p-3">
-                                            <button type="submit" class="btn btn-light mx-auto"
-                                                style="background-color: rgba(177, 98, 62, 0.804); outline-style: #000;">Submit</button>
-                                        </div>
+                                        </form>
                                     </div>
+
                                 </div>
                                 <div class="col-sm-3"></div>
                             </div>
@@ -125,11 +133,11 @@
 
         <br>
         <br>
-        <div class="container mb-2">
+        <div class="container">
 
 
             <!-- Task Cards -->
-            <div class="shadow-lg p-2 bg-light rounded ml-3 mr-3">
+            <div class="shadow-lg p-2 bg-light rounded ml-3 mr-3 mb-3">
                 <!-- Changed pink background -->
                 <div class="pb-3" style="background-color: rgba(253, 168, 128, 0.192);">
                     <div class="container" id="accordion">
@@ -352,7 +360,7 @@
             </div>
         </div>
         <!-- Footer -->
-        <footer class="align-center text-center">2022 Paola Gonzalez &copy;</footer>
+        <footer class="align-center text-center">2022 JWD 007 group 07 &copy;</footer><br>
 
         <!-- Bootstrap's JavaScript Files -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -366,7 +374,7 @@
             crossorigin="anonymous"></script>
         <script src="./assets/tasks.js"></script>
     </main>
-
+    <script src="./assets/script.js"></script>
 </body>
 
 </html>
