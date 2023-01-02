@@ -4,7 +4,6 @@
     "load",
     function () {
       // Fetch all the forms we want to apply custom Bootstrap validation styles to
-      var finalTaskList = TaskManager;
       var forms = document.getElementsByClassName("needs-validation");
       // Loop over them and prevent submission
       var validation = Array.prototype.filter.call(forms, function (form) {
@@ -26,6 +25,15 @@
               event.preventDefault();
               event.stopPropagation();
               form.reportValidity();
+            } else {
+              taskList.innerHTML=
+              this.taskName = taskName,
+      this.taskDescription = taskDescription,
+      this.firstName = firstName,
+      this.lastName = lastName,
+      this.dueDate = dueDate,
+      this.progress = progress,
+      this.id = id
             }
             form.classList.add("was-validated");
           },

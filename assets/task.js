@@ -9,13 +9,12 @@ class Task {
       this.id = id
     }};
 
-     function createTaskHtml(taskName, taskDescription, firstName, lastName, dueDate, progress, id){
-      const html=
-     `<h2 class="card-header btn" data-bs-toggle="collapse" href="${id}">
+     const createTaskHtml = (taskName, taskDescription, firstName, lastName, dueDate, progress, id) => {
+     return `<h2 class="card-header btn" data-bs-toggle="collapse" href="${id}">
      <button class="btn btn-link btn-block" type="button" data-toggle="collapse"
-         data-target="${id}">${taskName}</button>
+         data-target= ${id}>${taskName}</button>
  </h2>
-     <div id="${id}" class="collapse hide" data-bs-parent="#accordion">
+     <div id=${id} class="collapse hide" data-bs-parent="#accordion">
      <img class="card-img-top width-30 height-30" src="images/aesthetic-card1.jpg"
          alt="Task 1">
      <div class="card-body rounded-bottom"
@@ -24,10 +23,9 @@ class Task {
          <p class="card-text text-left">Description:${taskDescription}</p>
          <p class="card-text text-left">Assigned To:${firstName} ${lastName}</p>
          <p class="card-text text-left">Due Date:${dueDate}</p>
-         <select class="${progress}" id="${id}"
+         <select class=${progress} id=${id}
          style="background-color:rgba(214, 176, 159, 0.902)"></select>`;
-     };
-    
+     }
     
     class TaskManager {
       constructor() {
@@ -62,9 +60,10 @@ class Task {
         this.list[i].dueDate,
         this.list[i].progress,
         this.list[i].id
-        )
+        );
         finalTaskList += taskHtml                                                                                                                   
       }
-      taskList.innerHTML.insertAdjacentHTML('afterBegin',finalTaskList)
+      taskList.innerHTML = '';
+      taskList.insertAdjacentHTML('afterBegin', finalTaskList);
     }
 }
