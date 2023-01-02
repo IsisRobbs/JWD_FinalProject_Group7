@@ -18,7 +18,6 @@
             const valiDate = validateDate(date);
             const validFirstName = validateName(firstName);
             const validLastName = validateName(lastName);
-            console.log(valiDate);
 
             event.preventDefault(); //delete event.preventDefault when all working
             if (form.checkValidity() === false) {
@@ -45,13 +44,11 @@ function validateDate(date) {
     return false;
   }
 
-  console.log(month);
   return true;
 }
 
 function validateName(name) {
   name.setCustomValidity("");
-  console.log(name.value.length);
   if (name.value.length == 0) {
     name.setCustomValidity("Name must have at least 1 letter");
     //name.reportValidity();
