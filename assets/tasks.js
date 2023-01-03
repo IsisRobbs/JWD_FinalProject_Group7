@@ -6,7 +6,8 @@ class Task {
     lastName,
     dueDate,
     progress,
-    id
+    id,
+    pic
   ) {
     this.taskName = taskName;
     this.taskDescription = taskDescription;
@@ -15,7 +16,22 @@ class Task {
     this.dueDate = dueDate;
     this.progress = progress;
     this.id = id;
+    this.pic = pic;
   }
+}
+
+function picRandomizer() {
+  let pics = [
+    "aesthetic-card1.jpg",
+    "aesthetic-card2.jpg",
+    "aesthetic-card3.jpg",
+    "aesthetic-card4.jpg",
+    "aesthetic-card5.jpg",
+    "aesthetic-card6.jpg",
+  ];
+
+  let randomPic = Math.floor(Math.random() * pics.length);
+  return pics[randomPic];
 }
 
 const createTaskHtml = (
@@ -25,7 +41,8 @@ const createTaskHtml = (
   lastName,
   dueDate,
   progress,
-  id
+  id,
+  pic
 ) => {
   return `<div class="card border-0 accordion-item">
         <h2 class="card-header btn" data-bs-toggle="collapse" href="#collapse-${id}">
@@ -35,11 +52,11 @@ const createTaskHtml = (
             </button>
         </h2>
         <div id="collapse-${id}" class="collapse hide" data-bs-parent="#accordion">
-            <img class="card-img-top width-30 height-30" src="images/aesthetic-card1.jpg"
+            <img class="card-img-top width-30 height-30" src="images/${pic}"
                 alt="Task 1">
             <div class="card-body rounded-bottom"
                 style="background-color: rgba(177, 98, 62, 0.350)">
-                <h6 card="card-title"><u>Task One</u></h6>
+                <h6 card="card-title"><u>${taskName}</u></h6>
                 <p class="card-text text-left">Description: ${taskDescription}
                 </p>
                 <p class="card-text text-left">Assigned To: ${firstName} ${lastName}</p>
@@ -66,6 +83,7 @@ class TaskManager {
   constructor() {
     this.list = [];
     this.currentId = 0;
+    this.currentPic = picRandomizer();
   }
   addTask(taskName, taskDescription, firstName, lastName, dueDate, progress) {
     const task = new Task(
@@ -75,9 +93,10 @@ class TaskManager {
       lastName,
       dueDate,
       progress,
-      this.currentId
+      this.currentId,
+      (this.currentPic = picRandomizer())
     );
-
+    this.currentPic = TaskManager.currentPic;
     this.currentId += 1;
     this.list.push(task);
     this.render();
@@ -95,7 +114,8 @@ class TaskManager {
         this.list[i].lastName,
         this.list[i].dueDate,
         this.list[i].progress,
-        this.list[i].id
+        this.list[i].id,
+        this.list[i].pic
       );
       finalTaskList += taskHTML;
     }
