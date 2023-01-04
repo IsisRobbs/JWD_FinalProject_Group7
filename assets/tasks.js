@@ -20,19 +20,7 @@ class Task {
   }
 }
 
-function picRandomizer() {
-  let pics = [
-    "aesthetic-card1.jpg",
-    "aesthetic-card2.jpg",
-    "aesthetic-card3.jpg",
-    "aesthetic-card4.jpg",
-    "aesthetic-card5.jpg",
-    "aesthetic-card6.jpg",
-  ];
-
-  let randomPic = Math.floor(Math.random() * pics.length);
-  return pics[randomPic];
-}
+//}
 
 const createTaskHtml = (
   taskName,
@@ -80,10 +68,36 @@ const createTaskHtml = (
 };
 
 class TaskManager {
+  // this is the blueprint
   constructor() {
-    this.list = [];
+    //this is called when you create an object eg let TM = new TaskManager()
+    this.list = []; //fields available inside of class, also called Member Variables
     this.currentId = 0;
-    this.currentPic = picRandomizer();
+    this.pics = [
+      "aesthetic-card1.jpg",
+      "aesthetic-card2.jpg",
+      "aesthetic-card3.jpg",
+      "aesthetic-card4.jpg",
+      "aesthetic-card5.jpg",
+      "aesthetic-card6.jpg",
+    ];
+    this.usedPics = [];
+  }
+
+  getRandomPic() {
+    //method or (member function)
+    console.log(this.pics);
+    let randomIdx = Math.floor(Math.random() * this.pics.length);
+    console.log(randomIdx);
+    let randPic = this.pics.splice(randomIdx, 1);
+    this.usedPics.push(randPic);
+    console.log("randomized ", this.pics);
+    console.log("used pics ", this.usedPics);
+    if (this.pics.length === 0) {
+      this.pics = this.usedPics;
+      this.usedPics = [];
+    }
+    return randPic;
   }
   addTask(taskName, taskDescription, firstName, lastName, dueDate, progress) {
     const task = new Task(
@@ -94,9 +108,8 @@ class TaskManager {
       dueDate,
       progress,
       this.currentId,
-      (this.currentPic = picRandomizer())
+      this.getRandomPic()
     );
-    this.currentPic = TaskManager.currentPic;
     this.currentId += 1;
     this.list.push(task);
     this.render();
