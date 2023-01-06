@@ -68,22 +68,24 @@ class TaskManager {
 
     render(){
    const taskList = document.getElementById("accordion-item");
-  task.forEach((taskList) => {
+   for (let i=0; i < this.list.length; i++){
+   const currentTask = this.list[i];
+  this.list.forEach((taskList) => {
     let newItem = document.createElement("li");
     newItem.innerText = createTaskHtml(
-      taskName, 
-      taskDescription, 
-      firstName, 
-      lastName, 
-      dueDate, 
-      progress, 
-      id);
-    taskList.appendChild(newItem);
+      currentTask.taskName, 
+      currentTask.taskDescription, 
+      currentTask.firstName, 
+      currentTask.lastName, 
+      currentTask.dueDate, 
+      currentTask.progress, 
+      currentTask.id);
+      taskList.appendChild(newItem);
  }
     )
     
   }
-  
+}
 
   removeTask(id) {}
   editTask(task) {}
