@@ -10,20 +10,24 @@
         form.addEventListener(
           "submit",
           function (event) {
-            const date = document.getElementById("date");
+            const dueDate = document.getElementById("date");
             const firstName = document.getElementById("firstName");
-
             const lastName = document.getElementById("lastName");
+            const taskName = document.getElementById("formTaskNameInput");
+            const taskDescription =  document.getElementById("formTaskDescriptionInput");
+            const progress = document.getElementById("inputStatusSelect01");
 
-            const valiDate = validateDate(date);
-            const validFirstName = validateName(firstName);
-            const validLastName = validateName(lastName);
+            // const valiDate = validateDate(date);
+            // const validFirstName = validateName(firstName);
+            // const validLastName = validateName(lastName);
 
             event.preventDefault(); //delete event.preventDefault when all working
             if (form.checkValidity() === false) {
               event.preventDefault();
               event.stopPropagation();
               form.reportValidity();
+            } else {
+              
             }
             form.classList.add("was-validated");
           },

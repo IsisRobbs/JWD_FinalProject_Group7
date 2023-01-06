@@ -19,12 +19,11 @@ class Task {
 
   const createTaskHtml = (taskName, taskDescription, firstName, lastName, dueDate, progress, id) => {
     return ` 
-    <div class="card border-0 accordion-item">
     <h2 class="card-header btn" data-bs-toggle="collapse" href="${id}">
     <button class="btn btn-link btn-block" type="button" data-toggle="collapse"
-        data-target= ${id}>${taskName}</button>
+        data-target= "${id}">${taskName}</button>
 </h2>
-    <div id=${id} class="collapse hide" data-bs-parent="#accordion">
+    <div id="${id}" class="collapse hide" data-bs-parent="#accordion">
     <img class="card-img-top width-30 height-30" src="images/aesthetic-card1.jpg"
         alt="Task 1">
     <div class="card-body rounded-bottom"
@@ -33,9 +32,14 @@ class Task {
         <p class="card-text text-left">Description:${taskDescription}</p>
         <p class="card-text text-left">Assigned To:${firstName} ${lastName}</p>
         <p class="card-text text-left">Due Date:${dueDate}</p>
-        <select class=${progress} id=${id}
-        style="background-color:rgba(214, 176, 159, 0.902)"></select>
-        </div>
+        <select style="width: 200px" class="custom-select"
+        id="${id}" required>
+        <option value="">Choose Status...</option>
+        <option value="1">To Do</option>
+        <option value="2">In Progress</option>
+        <option value="3">Review</option>
+        <option value="4">Done</option>
+    </select>
         </div>
         </div>`;
     }
@@ -55,17 +59,22 @@ class TaskManager {
       progress,
       this.currentId
     );
-    task.forEach((createTaskHtml) => {
-      let li = document.createElement("li");
-      li.innerText = createTaskHtml;
-      this.list.appendChild(li);
-    });
+   
     this.currentId += 1;
     this.list.push(task);
+    taskList.push(newItem)
 
-
-
+    const taskList = document.getElementById("accordion-item");
+  this.list.forEach((taskList) => {
+    let newItem = document.createElement("li");
+    newItem.innerText = createTaskHtml;
+    taskList.appendChild(newItem);
+ }
+    )
+    console.log(taskList);
   }
+  
+
   removeTask(id) {}
   editTask(task) {}
   getTaskList() {
