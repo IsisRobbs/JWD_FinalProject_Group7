@@ -62,16 +62,26 @@ class TaskManager {
    
     this.currentId += 1;
     this.list.push(task);
-    taskList.push(newItem)
+    this.render();
+    taskList.push(newItem);
+  }
 
-    const taskList = document.getElementById("accordion-item");
-  this.list.forEach((taskList) => {
+    render(){
+   const taskList = document.getElementById("accordion-item");
+  task.forEach((taskList) => {
     let newItem = document.createElement("li");
-    newItem.innerText = createTaskHtml;
+    newItem.innerText = createTaskHtml(
+      taskName, 
+      taskDescription, 
+      firstName, 
+      lastName, 
+      dueDate, 
+      progress, 
+      id);
     taskList.appendChild(newItem);
  }
     )
-    console.log(taskList);
+    
   }
   
 
