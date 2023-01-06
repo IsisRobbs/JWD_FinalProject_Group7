@@ -16,6 +16,10 @@ class Task {
     this.progress = progress;
     this.id = id;
   }
+
+  const createTaskHtml() = {
+
+  }
 }
 
 class TaskManager {
@@ -33,9 +37,15 @@ class TaskManager {
       progress,
       this.currentId
     );
-
+    task.forEach((createTaskHtml) => {
+      let li = document.createElement
+    }
+    )
     this.currentId += 1;
     this.list.push(task);
+
+
+
   }
   removeTask(id) {}
   editTask(task) {}
