@@ -67,29 +67,33 @@ class TaskManager {
   }
 
     render(){
-   const taskList = document.getElementById("accordion-item");
-   for (let i=0; i < this.list.length; i++){
-   const currentTask = this.list[i];
-  this.list.forEach((taskList) => {
-    let newItem = document.createElement("li");
-    newItem.innerText = createTaskHtml(
-      currentTask.taskName, 
-      currentTask.taskDescription, 
-      currentTask.firstName, 
-      currentTask.lastName, 
-      currentTask.dueDate, 
-      currentTask.progress, 
-      currentTask.id);
-      taskList.appendChild(newItem);
- }
-    )
+   const taskList = document.getElementById("accordion");
+   
+
+
+
+//    for (let i=0; i < this.list.length; i++){
+//    const currentTask = this.list[i];
+//   this.list.forEach((taskList) => {
+//     let newItem = document.createElement("li");
+//     newItem.innerText = createTaskHtml(
+//       currentTask.taskName, 
+//       currentTask.taskDescription, 
+//       currentTask.firstName, 
+//       currentTask.lastName, 
+//       currentTask.dueDate, 
+//       currentTask.progress, 
+//       currentTask.id);
+//       taskList.appendChild(newItem);
+//  }
+//     )
     
-  }
+//   }
 }
 
-  removeTask(id) {}
-  editTask(task) {}
-  getTaskList() {
-    return this.list;
-  }
+  // removeTask(id) {}
+  // editTask(task) {}
+  // getTaskList() {
+  //   return this.list;
+  // }
 }
