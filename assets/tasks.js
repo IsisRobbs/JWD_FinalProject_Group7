@@ -68,7 +68,6 @@ class TaskManager {
 
     render(){
    const taskList = document.getElementById("accordion");
-   
 
 
 
