@@ -15,12 +15,17 @@
             const firstName = document.getElementById("firstName");
             const lastName = document.getElementById("lastName");
             const taskName = document.getElementById("formTaskNameInput");
-            const taskDescription =  document.getElementById("formTaskDescriptionInput");
+            const description = document.getElementById(
+              "formTaskDescriptionInput"
+            );
             const progress = document.getElementById("inputStatusSelect01");
 
-            // const valiDate = validateDate(date);
-            // const validFirstName = validateName(firstName);
-            // const validLastName = validateName(lastName);
+            const valiDate = validateDate(date);
+            const validFirstName = validateName(firstName);
+            const validLastName = validateName(lastName);
+            const validtaskName = validateTaskName(taskName);
+            const validDescription = validateDescription(description);
+            const validprogress = validateProgress(progress);
 
             event.preventDefault(); //delete event.preventDefault when all working
             if (form.checkValidity() === false) {
@@ -63,6 +68,33 @@ function validateName(name) {
   if (nameFormatMatch == null) {
     name.setCustomValidity("Please enter valid name");
     //name.reportValidity();
+    return false;
+  }
+  return true;
+}
+
+function validateTaskName(taskName) {
+  taskName.setCustomValidity("");
+  if (taskName.value.length == 0) {
+    taskName.setCustomValidity("Please name your task");
+    return false;
+  }
+  return true;
+}
+
+function validateDescription(description) {
+  description.setCustomValidity("");
+  if (description.value.length == 0) {
+    description.setCustomValidity("Please describe your task");
+    return false;
+  }
+  return true;
+}
+
+function validateProgress(progress) {
+  progress.setCustomValidity("");
+  if (progress.value.length == 0) {
+    progress.setCustomValidity("Please select a status");
     return false;
   }
   return true;
