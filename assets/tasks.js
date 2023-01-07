@@ -1,7 +1,7 @@
 class Task {
   constructor(
     taskName,
-    taskDescription,
+    description,
     firstName,
     lastName,
     dueDate,
@@ -9,7 +9,7 @@ class Task {
     id
   ) {
     this.taskName = taskName;
-    this.taskDescription = taskDescription;
+    this.description = description;
     this.firstName = firstName;
     this.lastName = lastName;
     this.dueDate = dueDate;
@@ -17,7 +17,7 @@ class Task {
     this.id = id;
   }}
 
-  const createTaskHtml = (taskName, taskDescription, firstName, lastName, dueDate, progress, id) => {
+  const createTaskHtml = (taskName, description, firstName, lastName, dueDate, progress, id) => {
     return ` 
     <h2 class="card-header btn" data-bs-toggle="collapse" href="${id}">
     <button class="btn btn-link btn-block" type="button" data-toggle="collapse"
@@ -29,7 +29,7 @@ class Task {
     <div class="card-body rounded-bottom"
         style="background-color: rgba(177, 98, 62, 0.350)">
         <h6 card="card-title"><u>${taskName}</u></h6>
-        <p class="card-text text-left">Description:${taskDescription}</p>
+        <p class="card-text text-left">Description:${taskdescription}</p>
         <p class="card-text text-left">Assigned To:${firstName} ${lastName}</p>
         <p class="card-text text-left">Due Date:${dueDate}</p>
         <select style="width: 200px" class="custom-select"
@@ -49,10 +49,10 @@ class TaskManager {
     this.list = [];
     this.currentId = 0;
   }
-  addTask(taskName, taskDescription, firstName, lastName, dueDate, progress) {
+  addTask(taskName, description, firstName, lastName, dueDate, progress) {
     const task = new Task(
       taskName,
-      taskDescription,
+      description,
       firstName,
       lastName,
       dueDate,
@@ -68,7 +68,22 @@ class TaskManager {
 
     render(){
    const taskList = document.getElementById("accordion");
-
+   let finalTaskList = '';
+   for (let i=0; i < this.list.length; i++){
+   const list = this.list[i];
+   const taskHtml= createTaskHtml(
+   this.list[i].taskName,
+   this.list[i].description,
+   this.list[i].firstName,
+   this.list[i].lastName,
+   this.list[i].dueDate,
+   this.list[i].progress,
+   this.list[i].id
+    );
+   finalTaskList += taskHtml     
+   }
+ taskList.innerHTML = '';
+ taskList.insertAdjacentHTML('afterBegin', finalTaskList);
 
 
 //    for (let i=0; i < this.list.length; i++){
