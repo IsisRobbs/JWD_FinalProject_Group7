@@ -19,13 +19,10 @@ class Task {
 
   const createTaskHtml = (taskName, taskDescription, firstName, lastName, dueDate, progress, id) => {
     return `
-    <div class="container" id="accordion">
-    <h4 class="font-weight-light text-center p-3"><u>Current Tasks:</u></h4>
-    <div class="row my-4">
     <div class="card border-0 accordion-item">
-    <h2 class="card-header btn" data-bs-toggle="collapse" href="${id}">
+    <h2 class="card-header btn" data-bs-toggle="collapse" href="collapse-${id}">
     <button class="btn btn-link btn-block" type="button" data-toggle="collapse"
-        data-target= "${id}">${taskName}</button>
+        data-target="#collapse-${id}">${taskName}</button>
 </h2>
     <div id="${id}" class="collapse hide" data-bs-parent="#accordion">
     <img class="card-img-top width-30 height-30" src="images/aesthetic-card1.jpg"
@@ -37,15 +34,13 @@ class Task {
         <p class="card-text text-left">Assigned To:${firstName} ${lastName}</p>
         <p class="card-text text-left">Due Date:${dueDate}</p>
         <select style="width: 200px" class="custom-select"
-        id="${id}" required>
+        id="inputStatusSelect01" required>
         <option value="">${progress}...</option>
         <option value="1">To Do</option>
         <option value="2">In Progress</option>
         <option value="3">Review</option>
         <option value="4">Done</option>
     </select>
-        </div>
-        </div>
         </div>
         </div>
         </div>`;
