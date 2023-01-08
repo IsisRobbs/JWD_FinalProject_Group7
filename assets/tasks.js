@@ -24,7 +24,7 @@ class Task {
     <button class="btn btn-link btn-block" type="button" data-toggle="collapse"
         data-target="#collapse-${id}">${taskName}</button>
 </h2>
-    <div id="${id}" class="collapse hide" data-bs-parent="#accordion">
+    <div id="collapse-${id}" class="collapse hide" data-bs-parent="#accordion">
     <img class="card-img-top width-30 height-30" src="images/aesthetic-card1.jpg"
         alt="Task 1">
     <div class="card-body rounded-bottom"
@@ -72,9 +72,9 @@ class TaskManager {
    let finalTaskList = "";
    for (let i=0; i < this.list.length; i++){
   //  const list = this.list[i];
-   let taskHtml = createTaskHtml(
-   this.list[i].taskName,
+   let taskHtml = createTaskHtml( 
    this.list[i].taskDescription,
+   this.list[i].taskName,
    this.list[i].firstName,
    this.list[i].lastName,
    this.list[i].dueDate,
@@ -83,8 +83,8 @@ class TaskManager {
     );
    finalTaskList += taskHtml     
    }
- taskList.innerHTML = '';
- taskList.insertAdjacentHTML('afterBegin', finalTaskList);
+ taskList.innerHTML = "";
+ taskList.insertAdjacentHTML("afterBegin", finalTaskList);
 
 
 //    for (let i=0; i < this.list.length; i++){
@@ -106,9 +106,9 @@ class TaskManager {
 //   }
 }
 
-  // removeTask(id) {}
-  // editTask(task) {}
-  // getTaskList() {
-  // return this.list;
-  // }
+  removeTask(id) {}
+  editTask(task) {}
+  getTaskList() {
+  return this.list;
+  }
 }
