@@ -1,7 +1,7 @@
 class Task {
   constructor(
     taskName,
-    description,
+    taskDescription,
     firstName,
     lastName,
     dueDate,
@@ -9,7 +9,7 @@ class Task {
     id
   ) {
     this.taskName = taskName;
-    this.description = description;
+    this.taskDescription = taskDescription;
     this.firstName = firstName;
     this.lastName = lastName;
     this.dueDate = dueDate;
@@ -17,8 +17,12 @@ class Task {
     this.id = id;
   }}
 
-  const createTaskHtml = (taskName, description, firstName, lastName, dueDate, progress, id) => {
-    return ` 
+  const createTaskHtml = (taskName, taskDescription, firstName, lastName, dueDate, progress, id) => {
+    return `
+    <div class="container" id="accordion">
+    <h4 class="font-weight-light text-center p-3"><u>Current Tasks:</u></h4>
+    <div class="row my-4">
+    <div class="card border-0 accordion-item">
     <h2 class="card-header btn" data-bs-toggle="collapse" href="${id}">
     <button class="btn btn-link btn-block" type="button" data-toggle="collapse"
         data-target= "${id}">${taskName}</button>
@@ -29,17 +33,20 @@ class Task {
     <div class="card-body rounded-bottom"
         style="background-color: rgba(177, 98, 62, 0.350)">
         <h6 card="card-title"><u>${taskName}</u></h6>
-        <p class="card-text text-left">Description:${taskdescription}</p>
+        <p class="card-text text-left">Description:${taskDescription}</p>
         <p class="card-text text-left">Assigned To:${firstName} ${lastName}</p>
         <p class="card-text text-left">Due Date:${dueDate}</p>
         <select style="width: 200px" class="custom-select"
         id="${id}" required>
-        <option value="">Choose Status...</option>
+        <option value="">${progress}...</option>
         <option value="1">To Do</option>
         <option value="2">In Progress</option>
         <option value="3">Review</option>
         <option value="4">Done</option>
     </select>
+        </div>
+        </div>
+        </div>
         </div>
         </div>`;
     }
@@ -49,10 +56,10 @@ class TaskManager {
     this.list = [];
     this.currentId = 0;
   }
-  addTask(taskName, description, firstName, lastName, dueDate, progress) {
+  addTask(taskName, taskDescription, firstName, lastName, dueDate, progress) {
     const task = new Task(
       taskName,
-      description,
+      taskDescription,
       firstName,
       lastName,
       dueDate,
@@ -63,17 +70,16 @@ class TaskManager {
     this.currentId += 1;
     this.list.push(task);
     this.render();
-    taskList.push(newItem);
   }
 
     render(){
    const taskList = document.getElementById("accordion");
-   let finalTaskList = '';
+   let finalTaskList = "";
    for (let i=0; i < this.list.length; i++){
-   const list = this.list[i];
-   const taskHtml= createTaskHtml(
+  //  const list = this.list[i];
+   let taskHtml = createTaskHtml(
    this.list[i].taskName,
-   this.list[i].description,
+   this.list[i].taskDescription,
    this.list[i].firstName,
    this.list[i].lastName,
    this.list[i].dueDate,
@@ -108,6 +114,6 @@ class TaskManager {
   // removeTask(id) {}
   // editTask(task) {}
   // getTaskList() {
-  //   return this.list;
+  // return this.list;
   // }
 }

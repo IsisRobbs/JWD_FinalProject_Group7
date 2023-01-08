@@ -11,7 +11,7 @@
         form.addEventListener(
           "submit",
           function (event) {
-            const dueDate = document.getElementById("date");
+            const date = document.getElementById("date");
             const firstName = document.getElementById("firstName");
             const lastName = document.getElementById("lastName");
             const taskName = document.getElementById("formTaskNameInput");
@@ -34,7 +34,12 @@
               form.reportValidity();
             } else {
               list.addTask(
-                
+               taskName.value,
+               description.value,
+               firstName.value,
+               lastName.value,
+               date.value,
+               progress.value
               )
             }
             form.classList.add("was-validated");
