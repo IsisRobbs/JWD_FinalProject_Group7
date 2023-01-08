@@ -35,7 +35,7 @@ const createTaskHtml = (
   return `<div class="card border-0 accordion-item">
         <h2 class="card-header btn" data-bs-toggle="collapse" href="#collapse-${id}">
             <button class="btn btn-link btn-block" type="button" data-toggle="collapse"
-                data-target="#collapse-${id}">
+                data-target="#collapse-${id}" style="background-color: rgba(177, 98, 62, 0.804); outline-style: #000; color: white;">
                 ${taskName}
             </button>
         </h2>
