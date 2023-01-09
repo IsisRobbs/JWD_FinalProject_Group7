@@ -33,14 +33,7 @@ class Task {
         <p class="card-text text-left">Description:${taskDescription}</p>
         <p class="card-text text-left">Assigned To:${firstName} ${lastName}</p>
         <p class="card-text text-left">Due Date:${dueDate}</p>
-        <select style="width: 200px" class="custom-select"
-        id="inputStatusSelect01" required>
-        <option value="">${progress}...</option>
-        <option value="1">To Do</option>
-        <option value="2">In Progress</option>
-        <option value="3">Review</option>
-        <option value="4">Done</option>
-    </select>
+        <p class="card-text text-left">Progress:${progress}</p>
         </div>
         </div>
         </div>`;
