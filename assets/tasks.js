@@ -6,7 +6,8 @@ class Task {
     lastName,
     dueDate,
     progress,
-    id
+    id,
+    picture
   ) {
     this.taskName = taskName;
     this.taskDescription = taskDescription;
@@ -14,10 +15,11 @@ class Task {
     this.lastName = lastName;
     this.dueDate = dueDate;
     this.progress = progress;
+    this.picture = picture;
     this.id = id;
   }}
 
-  const createTaskHtml = (taskName, taskDescription, firstName, lastName, dueDate, progress, id) => {
+  const createTaskHtml = (taskName, taskDescription, firstName, lastName, dueDate, picture, progress, id) => {
     return `
     <div class="card border-0 accordion-item">
     <h2 class="card-header btn" data-bs-toggle="collapse" href="collapse-${id}">
@@ -25,7 +27,7 @@ class Task {
         data-target="#collapse-${id}">${taskName}</button>
 </h2>
     <div id="collapse-${id}" class="collapse hide" data-bs-parent="#accordion">
-    <img class="card-img-top width-30 height-30" src="images/aesthetic-card1.jpg"
+   <img class="card-img-top width-30 height-30" src="${picture}"
         alt="Task 1">
     <div class="card-body rounded-bottom"
         style="background-color: rgba(177, 98, 62, 0.350)">
@@ -44,6 +46,17 @@ class TaskManager {
     this.list = [];
     this.currentId = 0;
   }
+    getRandomImage(){
+    var taskPicture = new Array();
+    randomPicture[0] = images\aesthetic-card1.jpg;
+    randomPicture[1] = images\aesthetic-card2.jpg;
+    randomPicture[2] =
+    randomPicture[3] =
+    randomPicture[4] =
+    randomPicture[5] =
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              tr
+    }
+
   addTask(taskName, taskDescription, firstName, lastName, dueDate, progress) {
     const task = new Task(
       taskName,
