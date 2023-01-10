@@ -132,12 +132,3 @@ hideShow.onclick = () => {
     hideShow.innerHTML = "Create A Task";
   }
 };
-//form.addEventListener(
-//          "submit",
-//          function (event) {
-//            const date = document.getElementById("date");
-//            const firstName = document.getElementById("firstName");
-//            const lastName = document.getElementById("lastName");
-//            const taskName = document.getElementById("formTaskNameInput");
-//            const description = document.getElementById(
-//              "formTaskDescriptionInput"
