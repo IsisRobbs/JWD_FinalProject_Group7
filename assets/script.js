@@ -1,9 +1,11 @@
+var list;
+
 (function () {
   "use strict";
   window.addEventListener(
     "load",
     function () {
-      const list = new TaskManager()
+      list = new TaskManager();
       // Fetch all the forms we want to apply custom Bootstrap validation styles to
       var forms = document.getElementsByClassName("needs-validation");
       // Loop over them and prevent submission
@@ -27,22 +29,25 @@
             const validDescription = validateDescription(description);
             const validprogress = validateProgress(progress);
 
-            event.preventDefault(); //delete event.preventDefault when all working
+            event.preventDefault();
             if (form.checkValidity() === false) {
               event.preventDefault();
               event.stopPropagation();
               form.reportValidity();
             } else {
               list.addTask(
-               taskName.value,
-               description.value,
-               firstName.value,
-               lastName.value,
-               date.value,
-               progress.value
-              )
+                taskName.value,
+                description.value,
+                firstName.value,
+                lastName.value,
+                date.value,
+                progress.value
+              );
+              setTimeout(function () {
+                form.classList.remove("was-validated");
+                document.getElementById("taskForm").reset();
+              }, 1000);
             }
-            form.classList.add("was-validated");
           },
           false
         );
@@ -105,4 +110,10 @@ function validateProgress(progress) {
     return false;
   }
   return true;
+}
+
+function deleteHandler(button) {
+  elementID = button.id;
+  taskID = elementID.split("-")[1];
+  list.removeTask(taskID);
 }

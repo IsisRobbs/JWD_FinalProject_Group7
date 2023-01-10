@@ -59,7 +59,7 @@
                                         <h2 class="font-weight-light mb-4">Add A Task</h2>
                                         <!--Name of Task-->
                                         <!--wrapped forms in form-->
-                                        <form class="needs-validation" novalidate>
+                                        <form id="taskForm" class="needs-validation" novalidate>
                                             <div class="form-group px-3">
                                                 <label for="formTaskNameInput" class="font-weight-light">Task
                                                     Name:</label>
@@ -141,14 +141,14 @@
             <div class="shadow-lg p-2 bg-light rounded ml-3 mr-3 mb-3">
                 <!-- Changed pink background -->
                 <div class="pb-3" style="background-color: rgba(253, 168, 128, 0.192);">
-                        <!--accordioncontainer-->
-                        <h4 class="font-weight-light text-center p-3"><u>Current Tasks:</u></h4>
-                        <div class="container" id="accordion">
+                    <!--accordioncontainer-->
+                    <h4 class="font-weight-light text-center p-3"><u>Current Tasks:</u></h4>
+                    <div class="container" id="accordion">
                         <!--Row 1-->
                         <!-- <div class="row my-4"> 
                              <div class="col mb-0">  -->
-                                <!-- <div class="card border-0 accordion-item"> -->
-                                    <!-- <h2 class="card-header btn" data-bs-toggle="collapse" href="#collapseOne">
+                        <!-- <div class="card border-0 accordion-item"> -->
+                        <!-- <h2 class="card-header btn" data-bs-toggle="collapse" href="#collapseOne">
                                         <button class="btn btn-link btn-block" type="button" data-toggle="collapse"
                                             data-target="#collapseOne">
                                             Task One
@@ -166,8 +166,8 @@
                                             </p>
                                             <p class="card-text text-left">Assigned To: Paola Gonzalez</p>
                                             <p class="card-text text-left">Due Date: 12/31/2022</p>
-                                            Dropdown Status--> 
-                                            <!-- <select class="custom-select" id="inputStatusSelect01"
+                                            Dropdown Status-->
+                        <!-- <select class="custom-select" id="inputStatusSelect01"
                                                 style="background-color:rgba(214, 176, 159, 0.902)">
                                                 <option selected>Choose Status...</option>
                                                 <option value="1">To Do</option>
@@ -177,8 +177,8 @@
                                             </select>
                                         </div>
                                     </div> -->
-                                <!-- </div> -->
-                            <!-- </div>
+                        <!-- </div> -->
+                        <!-- </div>
                              Second card
                             <div class="col-6 mb-0">
                                 <div class="card border-0 accordion-item">
@@ -200,8 +200,8 @@
                                             </p>
                                             <p class="card-text text-left">Assigned To: Paola Gonzalez</p>
                                             <p class="card-text text-left">Due Date: 12/31/2022</p> -->
-                                            <!--Dropdown Status-->
-                                            <!-- <select class="custom-select" id="inputStatusSelect01"
+                        <!--Dropdown Status-->
+                        <!-- <select class="custom-select" id="inputStatusSelect01"
                                                 style="background-color:rgba(214, 176, 159, 0.902)">
                                                 <option selected>Choose Status...</option>
                                                 <option value="1">To Do</option>
@@ -217,11 +217,11 @@
                          Row 2-->
                         <!-- <div class="row my-4">
                         -Third card-->
-                            <!-- <div class="col-6 mb-0">
+                        <!-- <div class="col-6 mb-0">
                                 <div class="card border-0 accordion-item">
                                     <h2 class="card-header btn" data-bs-toggle="collapse" href="#collapseThree">
                                         <button class="btn btn-link btn-block" type="button" data-toggle="collapse" -->
-                                            <!-- data-target="#collapseThree">
+                        <!-- data-target="#collapseThree">
                                             Task Three
                                         </button>
                                     </h2>
@@ -230,7 +230,7 @@
                                             alt="Task 3">
                                         <div class="card-body rounded-bottom"
                                             style="background-color:rgba(177, 98, 62, 0.591);"> -->
-                                            <!-- <h6 card="card-title"><u>Task Three</u></h6>
+                        <!-- <h6 card="card-title"><u>Task Three</u></h6>
                                             <p class="card-text text-left">Description: Here is the description for
                                                 this
                                                 task.
@@ -238,26 +238,26 @@
                                             <p class="card-text text-left">Assigned To: Paola Gonzalez</p>
                                             <p class="card-text text-left">Due Date: 12/31/2022</p>
                                             Dropdown Status-->
-                                            <!-- <select class="custom-select" id="inputStatusSelect01"
+                        <!-- <select class="custom-select" id="inputStatusSelect01"
                                                 style="background-color:rgba(214, 176, 159, 0.902)">
                                                 <option selected>Choose Status...</option>
                                                 <option value="1">To Do</option>
                                                 <option value="2">In Progress</option>
                                                 <option value="3">Review</option>
-                                                <option value="4">Done</option> --> 
-                                            <!-- </select>
+                                                <option value="4">Done</option> -->
+                        <!-- </select>
                                         </div>
                                     </div>
                                 </div>
                             </div> 
                             Fourth card-->
-                            <!-- <div class="col-6">
+                        <!-- <div class="col-6">
                                 <div class="card border-0">
                                     <h2 class="card-header btn" data-bs-toggle="collapse" href="#collapseFour">
                                         <button class="btn btn-link btn-block" type="button" data-toggle="collapse"
                                             data-target="#collapseFour">
                                             Task Four -->
-                                        <!-- </button> 
+                        <!-- </button> 
                                     </h2>
                                     <div id="collapseFour" class="collapse hide" data-bs-parent="#accordion">
                                         <img class="card-img-top width-30 height-30" src="images/aesthetic-card4.jpg"
@@ -266,14 +266,14 @@
                                             style="background-color: rgba(177, 98, 62, 0.591)">
                                             <h6 card="card-title"><u>Task Four</u></h6>
                                             <p class="card-text text-left">Description: Here is the description for -->
-                                                <!-- this
+                        <!-- this
                                                 task.
                                             </p>
                                             <p class="card-text text-left">Assigned To: Paola Gonzalez</p>
                                             <p class="card-text text-left">Due Date: 12/31/2022</p>
                                             Dropdown Status-->
-                                            <!-- <select class="custom-select" id="inputStatusSelect01" -->
-                                                <!-- style="background-color:rgba(214, 176, 159, 0.902)">
+                        <!-- <select class="custom-select" id="inputStatusSelect01" -->
+                        <!-- style="background-color:rgba(214, 176, 159, 0.902)">
                                                 <option selected>Choose Status...</option>
                                                 <option value="1">To Do</option>
                                                 <option value="2">In Progress</option>
@@ -281,7 +281,7 @@
                                                 <option value="4">Done</option>
                                             </select>
                                         </div> -->
-                                    <!-- </div> 
+                        <!-- </div> 
                                 </div>
                             </div> 
                         </div>
@@ -289,7 +289,7 @@
                         <div class="row">
                             Fifth card
                             <div class="col-6"> -->
-                                <!-- <div class="card border-0">
+                        <!-- <div class="card border-0">
                                     <h2 class="card-header btn" data-bs-toggle="collapse" href="#collapseFive">
                                         <button class="btn btn-link btn-block" type="button" data-toggle="collapse"
                                             data-target="#collapseFive">
@@ -307,9 +307,9 @@
                                                 task.
                                             </p>
                                             <p class="card-text text-left">Assigned To: Paola Gonzalez</p> -->
-                                            <!-- <p class="card-text text-left">Due Date: 12/31/2022</p>
+                        <!-- <p class="card-text text-left">Due Date: 12/31/2022</p>
                                             Dropdown Status-->
-                                            <!-- <select class="custom-select" id="inputStatusSelect01"
+                        <!-- <select class="custom-select" id="inputStatusSelect01"
                                                 style="background-color:rgba(214, 176, 159, 0.902)">
                                                 <option selected>Choose Status...</option>
                                                 <option value="1">To Do</option>
@@ -317,7 +317,7 @@
                                                 <option value="3">Review</option>
                                                 <option value="4">Done</option>
                                             </select> -->
-                                        <!-- </div>
+                        <!-- </div>
                                     </div>
                                 </div> 
                             </div>
@@ -343,7 +343,7 @@
                                             <p class="card-text text-left">Assigned To: Paola Gonzalez</p>
                                             <p class="card-text text-left">Due Date: 12/31/2022</p>
                                             Dropdown Status-->
-                                            <!-- <select class="custom-select" id="inputStatusSelect01"
+                        <!-- <select class="custom-select" id="inputStatusSelect01"
                                                 style="background-color:rgba(214, 176, 159, 0.902)">
                                                 <option selected>Choose Status...</option>
                                                 <option value="1">To Do</option>
@@ -352,9 +352,9 @@
                                                 <option value="4">Done</option>
                                             </select>
                                         </div> -->
-                                    <!-- </div>
+                        <!-- </div>
                                 </div>
-                            </div> --> 
+                            </div> -->
                         <!-- </div> -->
                     </div>
                 </div>
@@ -376,7 +376,7 @@
         <script src="./assets/tasks.js"></script>
         <script src="./assets/script.js"></script>
     </main>
-    
+
 </body>
 
 </html>
