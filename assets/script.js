@@ -117,3 +117,27 @@ function deleteHandler(button) {
   taskID = elementID.split("-")[1];
   list.removeTask(taskID);
 }
+
+function editHandler(button) {
+  elementID = button.id;
+  taskId = elementID.split("_")[1];
+  list.editTask(taskID);
+}
+
+let hideShow = document.getElementById("collapseFormButton");
+hideShow.onclick = () => {
+  if (hideShow.innerHTML == "Create A Task") {
+    hideShow.innerHTML = "Hide Task Form";
+  } else {
+    hideShow.innerHTML = "Create A Task";
+  }
+};
+//form.addEventListener(
+//          "submit",
+//          function (event) {
+//            const date = document.getElementById("date");
+//            const firstName = document.getElementById("firstName");
+//            const lastName = document.getElementById("lastName");
+//            const taskName = document.getElementById("formTaskNameInput");
+//            const description = document.getElementById(
+//              "formTaskDescriptionInput"

@@ -43,7 +43,7 @@ const createTaskHtml = (
         <p class="card-text text-left">Assigned To: ${firstName} ${lastName}</p>
         <p class="card-text text-left">Due Date: ${dueDate}</p>
         <p class="card-text text-left">Progress: ${progress}</p>
-        <button id="edit-${id}" class="btn btn-light mx-auto" style="background-color: rgba(177, 98, 62, 0.804); outline-style:
+        <button onclick=editHandler(this) id="edit-${id}" class="btn btn-light mx-auto" style="background-color: rgba(177, 98, 62, 0.804); outline-style:
            #000;">Edit</button>
         <button onclick=deleteHandler(this) id="delete-${id}" class="btn btn-light mx-auto" style="background-color: rgba(177, 98, 62, 0.804); outline-style:
            #000;">Delete Task</button>
@@ -83,14 +83,16 @@ class TaskManager {
     }
   }
 
+  editTask(id) {}
+
   render() {
     const taskList = document.getElementById("accordion");
     let finalTaskList = "";
     for (let i = 0; i < this.list.length; i++) {
       //  const list = this.list[i];
       let taskHtml = createTaskHtml(
-        this.list[i].taskDescription,
         this.list[i].taskName,
+        this.list[i].taskDescription,
         this.list[i].firstName,
         this.list[i].lastName,
         this.list[i].dueDate,
@@ -103,7 +105,6 @@ class TaskManager {
     taskList.insertAdjacentHTML("afterBegin", finalTaskList);
   }
 
-  editTask(task) {}
   getTaskList() {
     return this.list;
   }
