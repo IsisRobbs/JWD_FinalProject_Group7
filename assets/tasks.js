@@ -66,8 +66,8 @@ class TaskManager {
    for (let i=0; i < this.list.length; i++){
   //  const list = this.list[i];
    let taskHtml = createTaskHtml( 
-   this.list[i].taskDescription,
    this.list[i].taskName,
+   this.list[i].taskDescription,
    this.list[i].firstName,
    this.list[i].lastName,
    this.list[i].dueDate,
