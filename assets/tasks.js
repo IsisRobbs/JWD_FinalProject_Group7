@@ -21,7 +21,7 @@ class Task {
     return `
     <div class="card border-0 accordion-item">
     <h2 class="card-header btn" data-bs-toggle="collapse" href="collapse-${id}">
-    <button class="btn btn-link btn-block" type="button" data-toggle="collapse"
+    <button class="btn btn-link btn-block" style="color: black;" type="button" data-toggle="collapse"
         data-target="#collapse-${id}">${taskName}</button>
 </h2>
     <div id="collapse-${id}" class="collapse hide" data-bs-parent="#accordion">
@@ -34,6 +34,10 @@ class Task {
         <p class="card-text text-left">Assigned To:${firstName} ${lastName}</p>
         <p class="card-text text-left">Due Date:${dueDate}</p>
         <p class="card-text text-left">Progress:${progress}</p>
+          <div id="update" class="row p-3">
+            <button class="btn btn-light mx-auto" style="background-color: rgba(177, 98, 62, 0.804); outline-style:
+        #000;" type="submit">Update</button>
+        </div>
         </div>
         </div>
         </div>`;
