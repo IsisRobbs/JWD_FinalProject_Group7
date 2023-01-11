@@ -134,3 +134,5 @@ hideShow.onclick = () => {
     hideShow.innerHTML = "Create A Task";
   }
 };
+
+let addTask = document.getElementById("");

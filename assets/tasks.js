@@ -107,7 +107,7 @@ class TaskManager {
       }
 
       let year = stringDate.getFullYear();
-      let formattedDate = year + "-" + month + "-" + day;
+      let formattedDate = year + "-" + month + "-" + day; //refactor this to be separate function to clean code up
 
       //declaring forms
       let formTaskNameInput = document.getElementById("formTaskNameInput"); //this is the taskName field trying to insert to
@@ -120,15 +120,8 @@ class TaskManager {
       let formTaskProgressInput = document.getElementById(
         "inputStatusSelect01"
       );
-      //let formInput = document.getElementById("formTaskNameInput");
-      //let formInput = document.getElementById("formTaskNameInput");
-      //let formInput = document.getElementById("formTaskNameInput");
-      // let formInput = document.getElementById("formTaskNameInput");
-      //let formInput = document.getElementById("formTaskNameInput");
 
-      //console.log("input", taskDateInput);
       if (this.list[i].id == id) {
-        //document.getElementById("formTaskNameInput") = taskNameEdit;
         formTaskNameInput.value = taskNameEdit;
         formTaskDescriptionInput.value = taskDescriptionEdit;
         formTaskDateInput.value = formattedDate;
@@ -136,10 +129,7 @@ class TaskManager {
         formTaskLastNameInput.value = taskLastNameEdit;
         formTaskProgressInput.value = taskStatusEdit;
 
-        //taskNameInput.appendChild.createElement("taskNamEdit");
         return;
-        //let taskNameInput = form.elements["formTaskNameInput"];
-        //taskNameInput = taskNameEdit;
       }
     }
   }
