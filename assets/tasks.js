@@ -86,21 +86,55 @@ class TaskManager {
   editTask(id) {
     console.log(id);
     for (let i = 0; i < this.list.length; i++) {
+      //declaring what's in the accordion item to be entered into fields
       let taskNameEdit = this.list[i].taskName; //this is the taskname in current tasks we're trying to put into task Name form field
-      //let taskNameInput = document.getElementById("formTaskNameInput");
-      //console.log("formInput", document.getElementById("formTaskNameInput"));
-      let formTaskNameInput = document.getElementById("formTaskNameInput");
+      let taskDateEdit = this.list[i].dueDate; //this is the taskname in current tasks we're trying to put into task Name form field
+      let taskDescriptionEdit = this.list[i].taskDescription;
+      let taskFirstNameEdit = this.list[i].firstName;
+      let taskLastNameEdit = this.list[i].lastName;
+      let taskStatusEdit = this.list[i].progress;
+
+      //declaring formatting for datepicker
+      let stringDate = new Date(taskDateEdit); //returns mon jan xx xxxx
+      let month = stringDate.getMonth() + 1;
+
+      if (month < 10) {
+        month = "0" + month;
+      }
+      let day = stringDate.getDate() + 1;
+      if (day < 10) {
+        day = "0" + day;
+      }
+
+      let year = stringDate.getFullYear();
+      let formattedDate = year + "-" + month + "-" + day;
+
+      //declaring forms
+      let formTaskNameInput = document.getElementById("formTaskNameInput"); //this is the taskName field trying to insert to
+      let formTaskDateInput = document.getElementById("date"); //date field inserting to
+      let formTaskDescriptionInput = document.getElementById(
+        "formTaskDescriptionInput"
+      );
+      let formTaskFirstNameInput = document.getElementById("firstName");
+      let formTaskLastNameInput = document.getElementById("lastName");
+      let formTaskProgressInput = document.getElementById(
+        "inputStatusSelect01"
+      );
       //let formInput = document.getElementById("formTaskNameInput");
       //let formInput = document.getElementById("formTaskNameInput");
       //let formInput = document.getElementById("formTaskNameInput");
       // let formInput = document.getElementById("formTaskNameInput");
       //let formInput = document.getElementById("formTaskNameInput");
 
-      console.log("taskNameEdit", taskNameEdit);
-      console.log("input", formTaskNameInput);
+      //console.log("input", taskDateInput);
       if (this.list[i].id == id) {
         //document.getElementById("formTaskNameInput") = taskNameEdit;
         formTaskNameInput.value = taskNameEdit;
+        formTaskDescriptionInput.value = taskDescriptionEdit;
+        formTaskDateInput.value = formattedDate;
+        formTaskFirstNameInput.value = taskFirstNameEdit;
+        formTaskLastNameInput.value = taskLastNameEdit;
+        formTaskProgressInput.value = taskStatusEdit;
 
         //taskNameInput.appendChild.createElement("taskNamEdit");
         return;
