@@ -43,7 +43,7 @@ const createTaskHtml = (
         <p class="card-text text-left">Assigned To: ${firstName} ${lastName}</p>
         <p class="card-text text-left">Due Date: ${dueDate}</p>
         <p class="card-text text-left">Progress: ${progress}</p>
-        <button onclick=editHandler(this) id="edit-${id}" class="btn btn-light mx-auto" style="background-color: rgba(177, 98, 62, 0.804); outline-style:
+        <button onclick=editHandler(this) id="edit-${id}" class=" edit btn btn-light mx-auto" style="background-color: rgba(177, 98, 62, 0.804); outline-style:
            #000;">Edit</button>
         <button onclick=deleteHandler(this) id="delete-${id}" class="btn btn-light mx-auto" style="background-color: rgba(177, 98, 62, 0.804); outline-style:
            #000;">Delete Task</button>
@@ -83,7 +83,32 @@ class TaskManager {
     }
   }
 
-  editTask(id) {}
+  editTask(id) {
+    console.log(id);
+    for (let i = 0; i < this.list.length; i++) {
+      let taskNameEdit = this.list[i].taskName; //this is the taskname in current tasks we're trying to put into task Name form field
+      //let taskNameInput = document.getElementById("formTaskNameInput");
+      //console.log("formInput", document.getElementById("formTaskNameInput"));
+      let formTaskNameInput = document.getElementById("formTaskNameInput");
+      //let formInput = document.getElementById("formTaskNameInput");
+      //let formInput = document.getElementById("formTaskNameInput");
+      //let formInput = document.getElementById("formTaskNameInput");
+      // let formInput = document.getElementById("formTaskNameInput");
+      //let formInput = document.getElementById("formTaskNameInput");
+
+      console.log("taskNameEdit", taskNameEdit);
+      console.log("input", formTaskNameInput);
+      if (this.list[i].id == id) {
+        //document.getElementById("formTaskNameInput") = taskNameEdit;
+        formTaskNameInput.value = taskNameEdit;
+
+        //taskNameInput.appendChild.createElement("taskNamEdit");
+        return;
+        //let taskNameInput = form.elements["formTaskNameInput"];
+        //taskNameInput = taskNameEdit;
+      }
+    }
+  }
 
   render() {
     const taskList = document.getElementById("accordion");

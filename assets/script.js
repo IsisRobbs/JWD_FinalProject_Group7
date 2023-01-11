@@ -116,12 +116,14 @@ function deleteHandler(button) {
   elementID = button.id;
   taskID = elementID.split("-")[1];
   list.removeTask(taskID);
+  console.log("deleteHandler: ", elementID);
 }
 
 function editHandler(button) {
   elementID = button.id;
-  taskId = elementID.split("_")[1];
+  taskID = elementID.split("-")[1];
   list.editTask(taskID);
+  console.log("editHandler: ", elementID);
 }
 
 let hideShow = document.getElementById("collapseFormButton");
