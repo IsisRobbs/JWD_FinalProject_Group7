@@ -3,7 +3,7 @@
   window.addEventListener(
     "load",
     function () {
-      const list = new TaskManager()
+      const list = new TaskManager();
       // Fetch all the forms we want to apply custom Bootstrap validation styles to
       var forms = document.getElementsByClassName("needs-validation");
       // Loop over them and prevent submission
@@ -40,9 +40,13 @@
                lastName.value,
                date.value,
                progress.value
-              )
+              ) 
+              setTimeout(function () {
+                form.classList.remove("was-validated")
+                document.getElementById("taskForm").reset();
+              }, 1000)
             }
-            form.classList.add("was-validated");
+        
           },
           false
         );
