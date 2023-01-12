@@ -41,7 +41,7 @@
                date.value,
                progress.value
               ) 
-              setTimeo2ut(function () {
+              setTimeout(function () {
                 form.classList.remove("was-validated")
                 document.getElementById("taskForm").reset();
               }, 1000)
