@@ -44,14 +44,14 @@ class TaskManager {
   constructor() {
     this.list = [];
     this.currentId = 0;
-    this.pic = 
+    this.pics = 
     [ "./images/aesthetic-card1.jpg",
      "./images/aesthetic-card2.jpg",
     "./images/aesthetic-card3.jpg",
     "./images/aesthetic-card4.jpg",
     "./images/aesthetic-card5.jpg",
     "./images/aesthetic-card6.jpg", ];
-    this.usedPic = [];
+    this.usedPics = [];
   }
     
   //   //generate a number and provide to the image to generate randomly
@@ -98,16 +98,18 @@ class TaskManager {
   }
 
  pictureGenerater(){
-  let number = Math.floor(Math.random()*this.pic.length);
-  let Imageholder= this.pic.splice(number,1);
-  if (this.pic.length === 0) {
-    this.pic = this.usedPic;
-    this.usedPic = [];
-    return Imageholder;
+  let randomIdx = Math.floor(Math.random()*this.pics.length); //randomIdx: Change number to random index
+  let ranPic = this.pics.splice(randomIdx,1)[0];  //ranPic: splicing from array to put into the task card, the number 1 represents how many pictures is being deleted
+  //This is here to make sure the code doesen't break after all the pics have been used and returns usedPics to empty array
+  this.usedPics.push(ranPic);
+  if (this.pics.length === 0) {
+    this.pics = this.usedPics;
+    this.usedPics = [];    //here to manipulate the constructor
+    // return ranPic; 
     }
-    console.log(Imageholder);
-    this.usedPic.push(Imageholder);
-    return Imageholder;
+    console.log(ranPic);
+    console.log(this.usedPics);
+    return ranPic;
   }
 
 

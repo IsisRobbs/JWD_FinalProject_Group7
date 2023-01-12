@@ -40,9 +40,13 @@
                lastName.value,
                date.value,
                progress.value
-              )
+              ) 
+              setTimeo2ut(function () {
+                form.classList.remove("was-validated")
+                document.getElementById("taskForm").reset();
+              }, 1000)
             }
-            form.classList.add("was-validated");
+        
           },
           false
         );
