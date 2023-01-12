@@ -86,6 +86,10 @@ class TaskManager {
   editTask(id) {
     console.log(id);
     for (let i = 0; i < this.list.length; i++) {
+      if (this.list[i].id != id) {
+        continue; //if it isn't the id, keep going through the loop
+      }
+      //this is implicit that we've found the id
       //declaring what's in the accordion item to be entered into fields
       let taskNameEdit = this.list[i].taskName; //this is the taskname in current tasks we're trying to put into task Name form field
       let taskDateEdit = this.list[i].dueDate; //this is the taskname in current tasks we're trying to put into task Name form field
@@ -121,19 +125,16 @@ class TaskManager {
         "inputStatusSelect01"
       );
 
-      if (this.list[i].id == id) {
-        formTaskNameInput.value = taskNameEdit;
-        formTaskDescriptionInput.value = taskDescriptionEdit;
-        formTaskDateInput.value = formattedDate;
-        formTaskFirstNameInput.value = taskFirstNameEdit;
-        formTaskLastNameInput.value = taskLastNameEdit;
-        formTaskProgressInput.value = taskStatusEdit;
-
-        return;
-      }
+      formTaskNameInput.value = taskNameEdit;
+      formTaskDescriptionInput.value = taskDescriptionEdit;
+      formTaskDateInput.value = formattedDate;
+      formTaskFirstNameInput.value = taskFirstNameEdit;
+      formTaskLastNameInput.value = taskLastNameEdit;
+      formTaskProgressInput.value = taskStatusEdit;
+      this.render();
+      return;
     }
   }
-
   render() {
     const taskList = document.getElementById("accordion");
     let finalTaskList = "";

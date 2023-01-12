@@ -120,6 +120,17 @@ function deleteHandler(button) {
 }
 
 function editHandler(button) {
+  // this should get taskID like it is
+  // then it should get the task by ID from a new method we make (taskList.getTask(ID))
+  // then it should use that task to populate the form like taskList.editTask() currently does (pull that code out of editTask since it isn't edit related))
+  // then it needs to change the add task button to save changes or something (including setting the onClick to the below thing)
+  // THEN
+  // then we make a new handler for that new button
+  // that handler needs to get the ID from the form (we must have set it above)
+  // it then calls list.editTask(ID)
+  // that does the JS stuff to change it in the list
+  // then we render()
+  // then we change the button back and clear the form (and also set the onclick to the original add task onclick)
   elementID = button.id;
   taskID = elementID.split("-")[1];
   list.editTask(taskID);
