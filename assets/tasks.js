@@ -112,9 +112,31 @@ class TaskManager {
       }
     }
   }
-  editTask(id) {
-    //document.getElementById("addTaskUpdate").reset();
+  editTask(
+    taskName,
+    taskDescription,
+    firstName,
+    lastName,
+    dueDate,
+    progress,
+    id
+  ) {
+    console.log(id);
+    const edit = this.getTask(id);
+    edit.taskName = taskName.value;
+    edit.taskDescription = taskDescription.value;
+    edit.firstName = firstName.value;
+    edit.lastName = lastName.value;
+    edit.dueDate = dueDate.value;
+    edit.progress = progress.value;
+
+    const maybe = this.getTask(id);
+    console.log("maybe", maybe);
+
+    console.log("getTask id", edit);
+    this.render();
   }
+
   getTask(id) {
     for (let i = 0; i < this.list.length; i++) {
       if (this.list[i].id != id) {

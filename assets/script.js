@@ -15,13 +15,8 @@ var list;
           hideShow.innerHTML = "Create or Edit Task";
         }
       };
-
-      // Fetch all the forms we want to apply custom Bootstrap validation styles to
-      var forms = document.getElementsByClassName("needs-validation");
-      // Loop over them and prevent submission
-      var validation = Array.prototype.filter.call(forms, function (form) {
-        form.addEventListener("submit", addHandler, false);
-      });
+      const button = document.getElementById("addTaskUpdate");
+      button.setAttribute("onclick", "addHandler(this)");
     },
     false
   );
@@ -97,7 +92,7 @@ function editHandler(button) {
 
   addEdit = document.getElementById("addTaskUpdate");
   form = document.getElementById("taskForm");
-  console.log(addEdit.innerHTML);
+  // console.log(addEdit.innerHTML);
   elementID = button.id;
   taskID = elementID.split("-")[1];
   task = list.getTask(taskID); // gets the task out of the list
@@ -148,9 +143,7 @@ function addHandler(event) {
   const validDescription = validateDescription(description);
   const validprogress = validateProgress(progress);
   console.log(event);
-  event.preventDefault();
   if (form.checkValidity() === false) {
-    event.preventDefault();
     event.stopPropagation();
     form.reportValidity();
   } else {
@@ -177,10 +170,26 @@ function addHandler(event) {
 // then we render()
 // then we change the button back and clear the form (and also set the onclick to the original add task onclick)
 function taskUpdateHandler(button) {
-  console.log("hello");
-  elementID = button.id;
-
+  //console.log("hello");
+  //list.editTask(edit.id);
   //let button = document.getElementById("addTaskUpdate");
   button.innerHTML = "Add Task";
   button.setAttribute("onclick", "addHandler(event)");
+  const date = document.getElementById("date");
+  const firstName = document.getElementById("firstName");
+  const lastName = document.getElementById("lastName");
+  const taskName = document.getElementById("formTaskNameInput");
+  const description = document.getElementById("formTaskDescriptionInput");
+  const progress = document.getElementById("inputStatusSelect01");
+
+  const taskID = form.getAttribute("data-taskid");
+  list.editTask(
+    taskName,
+    description,
+    firstName,
+    lastName,
+    date,
+    progress,
+    taskID
+  );
 }
