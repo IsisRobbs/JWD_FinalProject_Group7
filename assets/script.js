@@ -155,24 +155,20 @@ function addHandler(event) {
       date.value,
       progress.value
     );
-    setTimeout(function () {
-      //clears form entries, clears validation
-      form.classList.remove("was-validated");
-      document.getElementById("taskForm").reset();
-    }, 1000);
+
+    //clears form entries, clears validation
+    form.classList.remove("was-validated");
+    document.getElementById("taskForm").reset();
   }
 }
 // THEN
-// then we make a new handler for that new button
-// that handler needs to get the ID from the form (we must have set it above)
-// it then calls list.editTask(ID)
-// that does the JS stuff to change it in the list
-// then we render()
-// then we change the button back and clear the form (and also set the onclick to the original add task onclick)
+// **check*then we make a new handler for that new button
+// **check*that handler needs to get the ID from the form (we must have set it above)
+// **check*it then calls list.editTask(ID)
+// **check*that does the JS stuff to change it in the list
+// **check*(then we render()
+// **check*then we change the button back and clear the form (and also set the onclick to the original add task onclick)
 function taskUpdateHandler(button) {
-  //console.log("hello");
-  //list.editTask(edit.id);
-  //let button = document.getElementById("addTaskUpdate");
   button.innerHTML = "Add Task";
   button.setAttribute("onclick", "addHandler(event)");
   const date = document.getElementById("date");
