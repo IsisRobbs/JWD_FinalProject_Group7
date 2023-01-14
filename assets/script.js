@@ -1,11 +1,11 @@
-var list;
+var g_taskManager; //g_ is for global
 
 (function () {
   "use strict";
   window.addEventListener(
     "load",
     function () {
-      list = new TaskManager();
+      g_taskManager = new TaskManager();
 
       let hideShow = document.getElementById("collapseFormButton");
       hideShow.onclick = () => {
@@ -80,7 +80,7 @@ function validateProgress(progress) {
 function deleteHandler(button) {
   elementID = button.id;
   taskID = elementID.split("-")[1];
-  list.removeTask(taskID);
+  g_taskManager.removeTask(taskID);
   console.log("deleteHandler: ", elementID);
 }
 
@@ -95,7 +95,7 @@ function editHandler(button) {
   // console.log(addEdit.innerHTML);
   elementID = button.id;
   taskID = elementID.split("-")[1];
-  task = list.getTask(taskID); // gets the task out of the list
+  task = g_taskManager.getTask(taskID); // gets the task out of the list
   form.setAttribute("data-taskId", task.id); //we are adding an id to the form here so that whenever we are "saving changes" we know which task id it is
   //declaring what's in the accordion item to be entered into fields
   let taskNameEdit = task.taskName; //this is the taskname in current tasks we're trying to put into task Name form field
@@ -146,7 +146,7 @@ function addHandler(event) {
     event.stopPropagation();
     form.reportValidity();
   } else {
-    list.addTask(
+    g_taskManager.addTask(
       taskName.value,
       description.value,
       firstName.value,
@@ -178,7 +178,7 @@ function taskUpdateHandler(button) {
   const progress = document.getElementById("inputStatusSelect01");
 
   const taskID = form.getAttribute("data-taskid");
-  list.editTask(
+  g_taskManager.editTask(
     taskName,
     description,
     firstName,
