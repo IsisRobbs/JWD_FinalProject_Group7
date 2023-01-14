@@ -7,14 +7,6 @@ var g_taskManager; //g_ is for global
     function () {
       g_taskManager = new TaskManager();
 
-      let hideShow = document.getElementById("collapseFormButton");
-      hideShow.onclick = () => {
-        if (hideShow.innerHTML == "Create or Edit Task") {
-          hideShow.innerHTML = "Hide Task Form";
-        } else {
-          hideShow.innerHTML = "Create or Edit Task";
-        }
-      };
       const button = document.getElementById("addTaskUpdate");
       button.setAttribute("onclick", "addHandler(this)");
     },
@@ -187,4 +179,12 @@ function taskUpdateHandler(button) {
     progress,
     taskID
   );
+}
+function toggleTaskFormVisibilityHandler(button) {
+  console.log(button);
+  if (button.innerHTML == "Create or Edit Task") {
+    button.innerHTML = "Hide Task Form";
+  } else {
+    button.innerHTML = "Create or Edit Task";
+  }
 }
