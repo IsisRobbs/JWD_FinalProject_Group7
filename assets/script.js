@@ -123,7 +123,6 @@ function editHandler(button) {
   addEdit.innerHTML = "Save Changes";
   addEdit.setAttribute("onclick", "taskUpdateHandler(this)");
 }
-// elementID = console.log("editHandler: ", elementID);
 
 function addHandler(event) {
   //checks form for validation and adds to taskList once validated
