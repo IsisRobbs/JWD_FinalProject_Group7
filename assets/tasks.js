@@ -21,8 +21,9 @@ class Task {
     return `
     <div class="card border-0 accordion-item">
     <h2 class="card-header btn" data-bs-toggle="collapse" href="collapse-${id}">
-    <button class="btn btn-link btn-block" style="color: black;" type="button" data-toggle="collapse"
-        data-target="#collapse-${id}">${taskName}</button>
+    <button class="btn btn-link btn-block text-left" style="color: black;" type="button" data-toggle="collapse"
+        data-target="#collapse-${id}">${taskName} </button>
+
 </h2>
     <div id="collapse-${id}" class="collapse hide" data-bs-parent="#accordion">
     <img class="card-img-top width-30 height-30" src="images/aesthetic-card1.jpg"
@@ -30,10 +31,10 @@ class Task {
     <div class="card-body rounded-bottom"
         style="background-color: rgba(177, 98, 62, 0.350)">
         <h6 card="card-title"><u>${taskName}</u></h6>
-        <p class="card-text text-left">Description:${taskDescription}</p>
-        <p class="card-text text-left">Assigned To:${firstName} ${lastName}</p>
-        <p class="card-text text-left">Due Date:${dueDate}</p>
-        <p class="card-text text-left">Progress:${progress}</p>
+        <p class="card-text text-left">Description: ${taskDescription}</p>
+        <p class="card-text text-left">Assigned To: ${firstName} ${lastName}</p>
+        <p class="card-text text-left">Due Date: ${dueDate}</p>
+        <p class="card-text text-left">Status: ${progress}</p>
           <div id="update" class="row p-3">
             <button class="btn btn-light mx-auto" style="background-color: rgba(177, 98, 62, 0.804); outline-style:
         #000;" type="submit">Update</button>
@@ -69,7 +70,7 @@ class TaskManager {
    let finalTaskList = "";
    for (let i=0; i < this.list.length; i++){
   //  const list = this.list[i];
-   let taskHtml = createTaskHtml( 
+   let taskHtml = createTaskHtml ( 
    this.list[i].taskName,
    this.list[i].taskDescription,
    this.list[i].firstName,
@@ -81,7 +82,7 @@ class TaskManager {
    finalTaskList += taskHtml     
    }
  taskList.innerHTML = "";
- taskList.insertAdjacentHTML("afterBegin", finalTaskList);
+ taskList.insertAdjacentHTML("afterbegin", finalTaskList);
 
 
 //    for (let i=0; i < this.list.length; i++){
