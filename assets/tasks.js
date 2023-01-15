@@ -132,8 +132,7 @@ class TaskManager {
 
     const maybe = this.getTask(id);
     console.log("maybe", maybe);
-    form.classList.remove("was-validated");
-    document.getElementById("taskForm").reset();
+
     console.log("getTask id", edit);
     this.render();
   }

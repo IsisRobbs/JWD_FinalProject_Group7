@@ -70,8 +70,8 @@ function validateProgress(progress) {
 }
 
 function deleteHandler(button) {
-  elementID = button.id;
-  taskID = elementID.split("-")[1];
+  const elementID = button.id;
+  const taskID = elementID.split("-")[1];
   g_taskManager.removeTask(taskID);
   console.log("deleteHandler: ", elementID);
 }
@@ -82,29 +82,29 @@ function editHandler(button) {
   // **CHECK** then it should use that task to populate the form like taskList.editTask() currently does (pull that code out of editTask since it isn't edit related)
   // **CHECK**then it needs to change the add task button to save changes or something (including setting the onclick to the below thing)
 
-  addEdit = document.getElementById("addTaskUpdate");
-  form = document.getElementById("taskForm");
+  const addEdit = document.getElementById("addTaskUpdate");
+  const form = document.getElementById("taskForm");
   // console.log(addEdit.innerHTML);
-  elementID = button.id;
-  taskID = elementID.split("-")[1];
-  task = g_taskManager.getTask(taskID); // gets the task out of the list
+  const elementID = button.id;
+  const taskID = elementID.split("-")[1];
+  const task = g_taskManager.getTask(taskID); // gets the task out of the list
   form.setAttribute("data-taskId", task.id); //we are adding an id to the form here so that whenever we are "saving changes" we know which task id it is
   //declaring what's in the accordion item to be entered into fields
-  let taskNameEdit = task.taskName; //this is the taskname in current tasks we're trying to put into task Name form field
-  let taskDateEdit = task.dueDate;
-  let taskDescriptionEdit = task.taskDescription;
-  let taskFirstNameEdit = task.firstName;
-  let taskLastNameEdit = task.lastName;
-  let taskStatusEdit = task.progress;
+  const taskNameEdit = task.taskName; //this is the taskname in current tasks we're trying to put into task Name form field
+  const taskDateEdit = task.dueDate;
+  const taskDescriptionEdit = task.taskDescription;
+  const taskFirstNameEdit = task.firstName;
+  const taskLastNameEdit = task.lastName;
+  const taskStatusEdit = task.progress;
 
-  let formTaskNameInput = document.getElementById("formTaskNameInput"); //this is the taskName field trying to insert to
-  let formTaskDateInput = document.getElementById("date");
-  let formTaskDescriptionInput = document.getElementById(
+  const formTaskNameInput = document.getElementById("formTaskNameInput"); //this is the taskName field trying to insert to
+  const formTaskDateInput = document.getElementById("date");
+  const formTaskDescriptionInput = document.getElementById(
     "formTaskDescriptionInput"
   );
-  let formTaskFirstNameInput = document.getElementById("firstName");
-  let formTaskLastNameInput = document.getElementById("lastName");
-  let formTaskProgressInput = document.getElementById("inputStatusSelect01");
+  const formTaskFirstNameInput = document.getElementById("firstName");
+  const formTaskLastNameInput = document.getElementById("lastName");
+  const formTaskProgressInput = document.getElementById("inputStatusSelect01");
 
   formTaskNameInput.value = taskNameEdit; //populating fields with input from task card
   formTaskDescriptionInput.value = taskDescriptionEdit;
@@ -118,8 +118,8 @@ function editHandler(button) {
 
 function addHandler(event) {
   //checks form for validation and adds to taskList once validated
-  let forms = document.getElementsByClassName("needs-validation");
-  let form = forms[0];
+  const forms = document.getElementsByClassName("needs-validation");
+  const form = forms[0];
   const date = document.getElementById("date");
   const firstName = document.getElementById("firstName");
   const lastName = document.getElementById("lastName");
@@ -168,8 +168,9 @@ function taskUpdateHandler(button) {
   const taskName = document.getElementById("formTaskNameInput");
   const description = document.getElementById("formTaskDescriptionInput");
   const progress = document.getElementById("inputStatusSelect01");
-
+  const form = document.getElementById("taskForm");
   const taskID = form.getAttribute("data-taskid");
+
   g_taskManager.editTask(
     taskName,
     description,
@@ -179,7 +180,10 @@ function taskUpdateHandler(button) {
     progress,
     taskID
   );
+  form.classList.remove("was-validated");
+  document.getElementById("taskForm").reset();
 }
+
 function toggleTaskFormVisibilityHandler(button) {
   console.log(button);
   if (button.innerHTML == "Create or Edit Task") {
