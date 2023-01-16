@@ -17,3 +17,6 @@ body {
 /*input:invalid {
   border: 2px dashed red;
 }*/
+option[value="Done"] {
+  background-color: gray;
+}

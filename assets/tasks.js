@@ -43,7 +43,7 @@ const createTaskHtml = (
         <p class="card-text text-left">Description: ${taskDescription}</p>
         <p class="card-text text-left">Assigned To: ${firstName} ${lastName}</p>
         <p class="card-text text-left">Due Date: ${dueDate}</p>
-        <p class="card-text text-left">Progress: ${progress}</p>
+        <p class="card-text text-left">Progress: ${progress.slice(1)}</p>
         <button onclick=editHandler(this) id="edit-${id}" class=" edit btn btn-light mx-auto" style="background-color: rgba(177, 98, 62, 0.804); outline-style:
            #000;">Edit</button>
         <button onclick=deleteHandler(this) id="delete-${id}" class="btn btn-light mx-auto" style="background-color: rgba(177, 98, 62, 0.804); outline-style:
@@ -79,9 +79,7 @@ class TaskManager {
       this.usedPics = []; //here to manipulate the constructor
       // return ranPic;
     }
-    console.log(ranPic);
-    console.log(this.usedPics);
-    console.log(this.pics);
+
     return ranPic;
   }
 
@@ -112,6 +110,22 @@ class TaskManager {
       }
     }
   }
+
+  sortByStatus() {
+    // let sorted = [];
+    //let progressStatus = this.list.progress;
+    this.list.sort(function (a, b) {
+      console.log(a);
+      console.log(b);
+      if (a.progress > b.progress) {
+        return 1;
+      }
+      if (a.progress < b.progress) {
+        return -1;
+      }
+      return 0;
+    });
+  }
   editTask(
     taskName,
     taskDescription,
@@ -123,6 +137,7 @@ class TaskManager {
   ) {
     console.log(id);
     const edit = this.getTask(id);
+    console.log(edit);
     edit.taskName = taskName.value;
     edit.taskDescription = taskDescription.value;
     edit.firstName = firstName.value;
@@ -149,6 +164,7 @@ class TaskManager {
   render() {
     const taskList = document.getElementById("accordion");
     let finalTaskList = "";
+    this.sortByStatus();
     for (let i = 0; i < this.list.length; i++) {
       //  const list = this.list[i];
       let taskHtml = createTaskHtml(

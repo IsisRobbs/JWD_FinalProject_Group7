@@ -8,7 +8,7 @@ var g_taskManager; //g_ is for global
       g_taskManager = new TaskManager();
 
       const button = document.getElementById("addTaskUpdate");
-      button.setAttribute("onclick", "addHandler(this)");
+      button.setAttribute("onclick", "addHandler(event)");
     },
     false
   );
@@ -105,7 +105,6 @@ function editHandler(button) {
   const formTaskFirstNameInput = document.getElementById("firstName");
   const formTaskLastNameInput = document.getElementById("lastName");
   const formTaskProgressInput = document.getElementById("inputStatusSelect01");
-
   formTaskNameInput.value = taskNameEdit; //populating fields with input from task card
   formTaskDescriptionInput.value = taskDescriptionEdit;
   formTaskDateInput.value = taskDateEdit;
@@ -133,7 +132,7 @@ function addHandler(event) {
   const validtaskName = validateTaskName(taskName);
   const validDescription = validateDescription(description);
   const validprogress = validateProgress(progress);
-  console.log(event);
+  //console.log(event);
   if (form.checkValidity() === false) {
     event.stopPropagation();
     form.reportValidity();
