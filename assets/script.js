@@ -150,6 +150,7 @@ function addHandler(event) {
     form.classList.remove("was-validated");
     document.getElementById("taskForm").reset();
   }
+  console.log(g_taskManager.list); //g_taskManager.list is the task list
 }
 // THEN
 // **check*then we make a new handler for that new button
@@ -189,5 +190,18 @@ function toggleTaskFormVisibilityHandler(button) {
     button.innerHTML = "Hide Task Form";
   } else {
     button.innerHTML = "Create or Edit Task";
+  }
+}
+function addToLocalStorage(list) {
+  localStorage.setItem(
+    "g_taskManager.list",
+    JSON.stringify(g_taskManager.list)
+  );
+}
+function getFromLocalStorage() {
+  const reference = localStorage.getItem("list");
+  if (reference) {
+    list = JSON.parse(reference);
+    render(list);
   }
 }
