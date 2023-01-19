@@ -161,7 +161,7 @@ function addHandler(event) {
 // **check*then we change the button back and clear the form (and also set the onclick to the original add task onclick)
 function taskUpdateHandler(button) {
   button.innerHTML = "Add Task";
-  button.setAttribute("onclick", "addHandler(event)");
+  button.setAttribute("onclick", "addHandler(this)");
   const date = document.getElementById("date");
   const firstName = document.getElementById("firstName");
   const lastName = document.getElementById("lastName");

@@ -43,7 +43,7 @@ const createTaskHtml = (
         <p class="card-text text-left">Description: ${taskDescription}</p>
         <p class="card-text text-left">Assigned To: ${firstName} ${lastName}</p>
         <p class="card-text text-left">Due Date: ${dueDate}</p>
-        <p class="card-text text-left">Progress: ${progress}</p>
+        <p class="card-text text-left">Progress: ${progress.slice(1)}</p>
         <button onclick=editHandler(this) id="edit-${id}" class=" edit btn btn-light mx-auto" style="background-color: rgba(177, 98, 62, 0.804); outline-style:
            #000;">Edit</button>
         <button onclick=deleteHandler(this) id="delete-${id}" class="btn btn-light mx-auto" style="background-color: rgba(177, 98, 62, 0.804); outline-style:
@@ -146,9 +146,22 @@ class TaskManager {
     }
   }
 
+  sortByStatus () {
+    this.list.sort (function(a, b) {
+      if (a.progress < b.progress) {
+        return -1;
+      }
+      if (a.progress > b.progress) {
+        return 1;
+      }
+      return 0;
+    });
+  }
+
   render() {
     const taskList = document.getElementById("accordion");
     let finalTaskList = "";
+    this.sortByStatus ();
     for (let i = 0; i < this.list.length; i++) {
       //  const list = this.list[i];
       let taskHtml = createTaskHtml(
