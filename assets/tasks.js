@@ -43,7 +43,7 @@ const createTaskHtml = (
         <p class="card-text text-left">Description: ${taskDescription}</p>
         <p class="card-text text-left">Assigned To: ${firstName} ${lastName}</p>
         <p class="card-text text-left">Due Date: ${dueDate}</p>
-        <p class="card-text text-left">Progress: ${progress.slice(1)}</p>
+        <p class="card-text text-left">Progress: ${progress}</p>
         <button onclick=editHandler(this) id="edit-${id}" class=" edit btn btn-light mx-auto" style="background-color: rgba(177, 98, 62, 0.804); outline-style:
            #000;">Edit</button>
         <button onclick=deleteHandler(this) id="delete-${id}" class="btn btn-light mx-auto" style="background-color: rgba(177, 98, 62, 0.804); outline-style:
@@ -113,20 +113,41 @@ class TaskManager {
   }
 
   sortByStatus() {
-    // let sorted = [];
-    //let progressStatus = this.list.progress;
-    this.list.sort(function (a, b) {
-      console.log(a);
-      console.log(b);
-      if (a.progress > b.progress) {
-        return 1;
+    let sorted = [];
+    for (let i = 0; i < this.list.length; i++) {
+      if (this.list[i].progress != "Done") {
+        let found = this.list[i];
+        sorted.push(found);
       }
-      if (a.progress < b.progress) {
-        return -1;
+    }
+
+    console.log("list", this.list);
+    console.log("sorted", sorted);
+    for (let i = 0; i < this.list.length; i++) {
+      if (this.list[i].progress == "Done") {
+        let found = this.list[i];
+        sorted.push(found);
       }
-      return 0;
-    });
+    }
+
+    console.log("list", this.list);
+    console.log("sorted", sorted);
+    this.list = sorted;
   }
+
+  // let sorted = [];
+  //let progressStatus = this.list.progress;
+  //this.list.sort(function (a, b) {
+  //  console.log(a);
+  //  console.log(b);
+  // if (a.progress > b.progress) {
+  //    return 1;
+  // }
+  // if (a.progress < b.progress) {
+  // return -1;
+  //}
+  //return 0;
+  // });
 
   editTask(
     taskName,
