@@ -121,17 +121,12 @@ class TaskManager {
       }
     }
 
-    console.log("list", this.list);
-    console.log("sorted", sorted);
     for (let i = 0; i < this.list.length; i++) {
       if (this.list[i].progress == "Done") {
         let found = this.list[i];
         sorted.push(found);
       }
     }
-
-    console.log("list", this.list);
-    console.log("sorted", sorted);
     this.list = sorted;
   }
 
@@ -188,7 +183,7 @@ class TaskManager {
     const taskList = document.getElementById("accordion");
     let finalTaskList = "";
     this.sortByStatus();
-    addToLocalStorage(this.list);
+    addToLocalStorage(this);
 
     for (let i = 0; i < this.list.length; i++) {
       //  const list = this.list[i];
