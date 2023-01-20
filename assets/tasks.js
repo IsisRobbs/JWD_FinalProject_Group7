@@ -130,20 +130,6 @@ class TaskManager {
     this.list = sorted;
   }
 
-  // let sorted = [];
-  //let progressStatus = this.list.progress;
-  //this.list.sort(function (a, b) {
-  //  console.log(a);
-  //  console.log(b);
-  // if (a.progress > b.progress) {
-  //    return 1;
-  // }
-  // if (a.progress < b.progress) {
-  // return -1;
-  //}
-  //return 0;
-  // });
-
   editTask(
     taskName,
     taskDescription,
