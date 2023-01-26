@@ -5,10 +5,10 @@ var g_taskManager; //g_ is for global
   window.addEventListener(
     "load",
     function () {
-      g_taskManager = new TaskManager();
-
+      getFromLocalStorage();
+      g_taskManager.render();
       const button = document.getElementById("addTaskUpdate");
-      button.setAttribute("onclick", "addHandler(this)");
+      button.setAttribute("onclick", "addHandler(event)");
     },
     false
   );
@@ -105,7 +105,6 @@ function editHandler(button) {
   const formTaskFirstNameInput = document.getElementById("firstName");
   const formTaskLastNameInput = document.getElementById("lastName");
   const formTaskProgressInput = document.getElementById("inputStatusSelect01");
-
   formTaskNameInput.value = taskNameEdit; //populating fields with input from task card
   formTaskDescriptionInput.value = taskDescriptionEdit;
   formTaskDateInput.value = taskDateEdit;
@@ -133,7 +132,7 @@ function addHandler(event) {
   const validtaskName = validateTaskName(taskName);
   const validDescription = validateDescription(description);
   const validprogress = validateProgress(progress);
-  console.log(event);
+  //console.log(event);
   if (form.checkValidity() === false) {
     event.stopPropagation();
     form.reportValidity();
@@ -151,6 +150,7 @@ function addHandler(event) {
     form.classList.remove("was-validated");
     document.getElementById("taskForm").reset();
   }
+  console.log(g_taskManager.list); //g_taskManager.list is the task list
 }
 // THEN
 // **check*then we make a new handler for that new button
@@ -192,3 +192,22 @@ function toggleTaskFormVisibilityHandler(button) {
     button.innerHTML = "Create or Edit Task";
   }
 }
+function addToLocalStorage(tm) {
+  localStorage.setItem("g_taskManager", JSON.stringify(g_taskManager));
+}
+
+function getFromLocalStorage() {
+  g_taskManager = new TaskManager();
+  let tasksFromStorage = JSON.parse(localStorage.getItem("g_taskManager"));
+  Object.assign(g_taskManager, tasksFromStorage);
+}
+//I got here by watching tutorial https://www.google.com/search?q=to+do+list+local+storage+javascript&rlz=1C1RXQR_enUS1008US1008&oq=to+do+list+local+storage&aqs=chrome.0.0i512j69i57j0i22i30l2j0i390l2j69i60l2.4415j0j7&sourceid=chrome&ie=UTF-8#fpstate=ive&vld=cid:c242f8c4,vid:y71CdVq5SvI
+
+//I also referenced https://stackoverflow.com/questions/34083730/how-to-store-and-get-an-object-without-destroying-the-type-in-localstorage
+//Our classes have methods so this was helpful within the stack overflow article:
+//"While Martin's answer works for classes without methods. For classes with methods you can try this:
+
+//let personFromStorage = JSON.parse(localStorage.getItem//('person')) as Person;
+//
+//let person = new Person('');
+//Object.assign(person , personFromStorage);""

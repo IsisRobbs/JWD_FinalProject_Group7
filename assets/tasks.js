@@ -56,6 +56,7 @@ const createTaskHtml = (
 class TaskManager {
   constructor() {
     this.list = [];
+
     this.currentId = 0;
     this.pics = [
       "./images/aesthetic-card1.jpg",
@@ -79,9 +80,7 @@ class TaskManager {
       this.usedPics = []; //here to manipulate the constructor
       // return ranPic;
     }
-    console.log(ranPic);
-    console.log(this.usedPics);
-    console.log(this.pics);
+
     return ranPic;
   }
 
@@ -112,6 +111,25 @@ class TaskManager {
       }
     }
   }
+
+  sortByStatus() {
+    let sorted = [];
+    for (let i = 0; i < this.list.length; i++) {
+      if (this.list[i].progress != "Done") {
+        let found = this.list[i];
+        sorted.push(found);
+      }
+    }
+
+    for (let i = 0; i < this.list.length; i++) {
+      if (this.list[i].progress == "Done") {
+        let found = this.list[i];
+        sorted.push(found);
+      }
+    }
+    this.list = sorted;
+  }
+
   editTask(
     taskName,
     taskDescription,
@@ -123,6 +141,7 @@ class TaskManager {
   ) {
     console.log(id);
     const edit = this.getTask(id);
+    console.log(edit);
     edit.taskName = taskName.value;
     edit.taskDescription = taskDescription.value;
     edit.firstName = firstName.value;
@@ -149,6 +168,9 @@ class TaskManager {
   render() {
     const taskList = document.getElementById("accordion");
     let finalTaskList = "";
+    this.sortByStatus();
+    addToLocalStorage(this);
+
     for (let i = 0; i < this.list.length; i++) {
       //  const list = this.list[i];
       let taskHtml = createTaskHtml(
