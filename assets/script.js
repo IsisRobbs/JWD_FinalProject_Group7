@@ -211,3 +211,8 @@ function getFromLocalStorage() {
 //
 //let person = new Person('');
 //Object.assign(person , personFromStorage);""
+
+//let personFromStorage = JSON.parse(localStorage.getItem//('person')) as Person;
+//
+//let person = new Person('');
+//Object.assign(person , personFromStorage);""
